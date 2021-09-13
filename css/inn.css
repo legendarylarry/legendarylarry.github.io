@@ -1,0 +1,36 @@
+canvas {
+  display: block;
+}
+
+.pad {
+  padding:20px 20px 20px 100px;
+}
+
+.nopad {
+  padding: 0;
+}
+
+.head {
+  padding:20px 100px 20px 100px;
+}
+
+.hide {
+  display:none !important;
+}
+
+.node-config pre, .node-config .message-body {
+  background-color: #1f2330;
+  padding: 0;
+}
+
+.dark {
+  color: #1f2330;
+}
+
+.node-config {
+  display:none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index:40;
+}

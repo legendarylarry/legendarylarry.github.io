@@ -1,0 +1,361 @@
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/dracula.css">
+<!--    <link rel="stylesheet" href="shepherd.js/dist/css/shepherd.css"/>-->
+
+    <link rel="stylesheet" href="css/inn.css">
+</head>
+
+
+<body>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" data-page="home">
+        Home
+      </a>
+
+      <a class="navbar-item" data-page="arch">
+        Architecture Patterns
+      </a>
+
+      <a class="navbar-item" data-page="streams">
+        Data Streams Configuration
+      </a>
+
+      <a class="navbar-item" href="#" data-page="surge">
+        Python Surge ETL
+      </a>
+
+      <a class="navbar-item" data-page="security">
+        Security Gates
+      </a>
+
+      <a class="navbar-item" data-page="integrity">
+        Data Provenance / Integrity
+      </a>
+
+      <a class="navbar-item">
+        Live Machine Learning Demo
+      </a>
+
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Contact Us</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="page" id="home">
+
+    <section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title">
+      Innovisions
+    </p>
+    <p class="subtitle">
+       Innovisions is a set of tools and architectural patterns for data aggregation enabling advanced analytics,
+              machine learning, event-driven systems, and value-added data product generation.
+    </p>
+  </div>
+</section>
+</div>
+
+<div class="page" id="arch">
+
+    <div class="columns">
+      <div class="column head">
+         <article class="message">
+            <div class="message-header">
+              <p>Introduction</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+             Below are examples of data pipelines implemented with Innovisions tools and patterns. The framework
+                is designed to be highly flexible while maintaining a simplified deployment.
+            </div>
+          </article>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column pad">
+         <article class="message is-primary">
+            <div class="message-header">
+              <p>Operational Simplicity</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+              <div class="content">
+             <p>Architectural flexibility is facilitated by our <b>surge</b> python
+               library, which handles Extract, Transform, and Load (ETL) operations.</p>
+             <p>
+                 Every <b class="dark">filled node</b> in this graph is an exact clone, running identical software. Their behavior is controlled
+               by runtime configuration via environment variables.
+             </p>
+             <p>
+               Mouse over the nodes to see their configuration.
+             </p>
+
+              </div>
+            </div>
+          </article>
+
+           <article class="node-config message is-dark" data-node="API Extractor">
+            <div class="message-header">
+              <p>Surge Node Config</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+             <pre><code class="language-yaml">
+    cloudwatch_to_sqs:
+     extract:
+       type: aws_cloudwatch_logs
+       log_streams:
+         - surge-mock:surge-mock-stream
+       connection: *aws_connection
+     transform:
+       type: aws_cloudwatch_logs
+     load:
+       type: sqs
+       queue: surge-all
+       connection: *elk_connection
+             </code></pre>
+            </div>
+          </article>
+      </div>
+      <div class="column">
+
+          <canvas id="prime" height="800"></canvas>
+      </div>
+    </div>
+
+     <hr>
+
+
+    <div class="columns">
+      <div class="column pad">
+         <article class="message is-primary">
+            <div class="message-header">
+              <p>Binary Data Ingest</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+              <div class="content">
+             <p>This graph shows a simple data ingest pipeline, pulling data from typical systems used to disseminate
+             Earth observation and weather data.</p>
+             <p>
+               Metadata from granules is extracted and stored in a structured data warehouse, and the granules themselves
+                 land on a distributed filesystem for further processing.
+             </p>
+             <p>
+               Software which needs to perform additional processing can either tap into the message bus feeds, or look
+                 up the referenced granules from the data warehouse.
+             </p>
+
+              </div>
+            </div>
+          </article>
+
+           <article class="node-config message is-dark hide" data-node="API Extractor">
+            <div class="message-header">
+              <p>Surge Python ETL Config YAML</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+             <pre><code class="language-yaml">
+    cloudwatch_to_sqs:
+     extract:
+       type: aws_cloudwatch_logs
+       log_streams:
+         - surge-mock:surge-mock-stream
+       connection: *aws_connection
+     transform:
+       type: aws_cloudwatch_logs
+     load:
+       type: sqs
+       queue: surge-all
+       connection: *elk_connection
+             </code></pre>
+            </div>
+          </article>
+      </div>
+      <div class="column">
+
+          <canvas id="arch1" height="800"></canvas>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns">
+      <div class="column pad">
+         <article class="message is-primary">
+            <div class="message-header">
+              <p>Operational Simplicity</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+              <div class="content">
+             <p>Architectural flexibility is facilitated by our <b>surge</b> python
+               library, which handles Extract, Transform, and Load (ETL) operations.</p>
+             <p>
+               Every filled node in this graph is an exact clone, running identical software. Their behavior is controlled
+               by configuration in environment variables.
+             </p>
+             <p>
+               Mouse over the nodes to see their configuration.
+             </p>
+
+              </div>
+            </div>
+          </article>
+
+           <article class="node-config message is-dark hide" data-node="API Extractor">
+            <div class="message-header">
+              <p>Surge Python ETL Config YAML</p>
+              <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+             <pre><code class="language-yaml">
+    cloudwatch_to_sqs:
+     extract:
+       type: aws_cloudwatch_logs
+       log_streams:
+         - surge-mock:surge-mock-stream
+       connection: *aws_connection
+     transform:
+       type: aws_cloudwatch_logs
+     load:
+       type: sqs
+       queue: surge-all
+       connection: *elk_connection
+             </code></pre>
+            </div>
+          </article>
+      </div>
+      <div class="column">
+
+          <canvas id="arch2" height="800"></canvas>
+      </div>
+    </div>
+
+</div>
+
+<div class="page" id="surge">
+
+<h1 class="title">Surge Python ETL Library</h1>
+<h2 class="subtitle">The Workhorse of Data Analytics Pipeline</h2>
+
+<div class="block">
+Currently targeting python 3.6+. `pyenv` is recommended to manage python installs.
+</div>
+<div class="block">
+You may need to install libsqlite3-dev with `apt` or equivalent before building python,
+so you can use sqlite libs.
+</div>
+
+<div class="block">
+This command will make the `surge` command available in your shell
+    <pre><code class="language-bash">
+        pip install --editable .
+    </code></pre>
+</div>
+
+<div class="block">
+Now you can run it, some examples:
+<pre><code class="language-bash">
+surge --help
+surge --dry --verbose
+surge -s stream_name1,stream_name2 -vv -f path-to-config.yml
+surge --reset-cursor stream
+surge --list-extractors
+surge --list-transformers
+SURGE_CONFIG='some yaml' surge
+</code></pre>
+</div>
+
+
+
+<h2 class="subtitle">Components</h2>
+
+`extract` module has classes that will consume upstream APIs
+
+`transform` module has classes that will transform the API response data into the document format for elasticsearch
+
+`load` module contains output classes, elasticsearch, SQS, and S3
+
+`stream.py` starts and manages threads
+
+`main.py` cli and entrypoint
+
+### Environment Variables
+
+Post in slack if you need values for these.
+
+```shell script
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export ELASTIC_USERNAME=
+export ELASTIC_PASSWORD=
+export JIRA_USERNAME=
+export JIRA_PASSWORD=
+export CONFLUENCE_USERNAME=
+export CONFLUENCE_PASSWORD=
+export SLACK_BOT_TOKEN=
+```
+
+### Adding/Implementing a Data Source
+
+1. Add to config.yml
+1. Create extractor class in appropriate place within surge.extract
+1. Create transform class in appropriate place within surge.transform
+1. Update ExtractorFactory._extractors and TransformerFactory._transformers
+
+Note: `surge/extract/__init__.py` and `surge/transform/__init__.py` define base Extractor/Transformer classes
+ that you can extend for some common functions.
+</div>
+
+<div class="page" id="streams">
+
+
+</div>
+
+</body>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<!--<script type="text/javascript" src="js/shepherd.min.js"></script>-->
+<script type="text/javascript" src="js/createjs-2015.05.21.min.js"></script>
+<script type="text/javascript" src="js/flowconnector.js"></script>
+<script type="text/javascript" src="js/flowitem.js"></script>
+<script type="text/javascript" src="js/graph.js"></script>
+<script type="text/javascript" src="js/flow.js"></script>
+<script type="text/javascript" src="js/inn.js"></script>
+</html>
