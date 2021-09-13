@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     ]);
 
-    new flowjs.DiFlowChart("prime", graph).draw();
+    new flowjs.DiFlowChart("graph-prime", graph).draw();
 
     graph = new flowjs.DiGraph();
      graph.addPaths([
@@ -48,7 +48,17 @@ document.addEventListener("DOMContentLoaded", function() {
         ["API Extractor", "Binary Loader", "Data Lake"]
 
     ]);
-    new flowjs.DiFlowChart("arch1", graph).draw();
+    new flowjs.DiFlowChart("graph-granules", graph).draw();
+
+    graph = new flowjs.DiGraph();
+     graph.addPaths([
+        ["JIRA", "API Extractor", "JsonTransformer", "Loader", "ElasticSearch"],
+        ["Confluence", "API Extractor", "JsonTransformer", "Loader", "ElasticSearch"],
+        ["Slack", " API Extractor ", "JsonTransformer", "Loader", "ElasticSearch"],
+        ["Mattermost", " API Extractor ", "JsonTransformer", "Loader", "ElasticSearch"]
+
+    ]);
+    new flowjs.DiFlowChart("graph-comms", graph).draw();
 
 
 });
