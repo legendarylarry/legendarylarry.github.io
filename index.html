@@ -37,6 +37,10 @@
                 Architecture Patterns
             </a>
 
+            <a class="navbar-item" data-page="scale">
+                Scalability
+            </a>
+
             <a class="navbar-item" data-page="streams">
                 Data Streams
             </a>
@@ -49,8 +53,12 @@
                 Security
             </a>
 
+             <a class="navbar-item" href="#" data-page="catalog">
+                Data Catalog
+            </a>
+
             <a class="navbar-item" data-page="integrity">
-                Data Provenance / Integrity
+                Provenance / Integrity
             </a>
 
             <a class="navbar-item">
@@ -71,6 +79,83 @@
     </div>
 </nav>
 
+<div class="page" id="scale">
+
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Scale Horizontally
+            </p>
+            <p class="subtitle">
+                Identical ETL nodes enable seamless horizontal scaling in a cloud environment without additional engineering.
+            </p>
+        </div>
+    </section>
+
+        <div classs="content">
+             <div class="columns">
+        <div class="column pad">
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>Scalable Ingest</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                    <div class="content">
+                        <p>Extractor nodes pull data from an upstream source.</p>
+                        <p>
+                           The extractor nodes are clones, to add more ingest capacity, add more nodes or vertically
+                            scale individual node resources.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+             <article class="message is-success">
+                <div class="message-header">
+                    <p>Cost Efficiency</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                    <div class="content">
+
+                        <p>Balancing node power and number is an exercise in maximizing cost efficiency. More powerful
+                            nodes are more cost effective for sustained throughput, while smaller nodes which grow/shrink in number
+                            are more cost effective for handling bursts and lulls.
+                        </p>
+                        <p>
+                            We perform a quantitative analysis of data throughput to determine the most cost-effective
+                            implementation, but the flexibility of design means that pivoting to a new strategy is simple
+                            and quick.
+                        </p>
+
+                    </div>
+                </div>
+            </article>
+
+            <article class="message is-info">
+                <div class="message-header">
+                    <p>Scalable Distribution</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                    <div class="content">
+                        <p>Distribution nodes can likewise be simply scaled to meet needs. We place them behind a
+                        load balancer to retain a single access point for consumers.
+                        </p>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="column">
+            <canvas id="graph-scale-ingress" height="800"></canvas>
+             <canvas id="graph-scale-egress" height="800"></canvas>
+        </div>
+    </div>
+        </div>
+</div>
+
 <div class="page" id="home">
 
     <section class="hero is-primary">
@@ -82,6 +167,20 @@
                 Innovisions is a set of tools and architectural patterns for data aggregation enabling advanced
                 analytics,
                 machine learning, event-driven systems, and value-added data product generation.
+            </p>
+        </div>
+    </section>
+</div>
+
+<div class="page" id="catalog">
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <p class="title">
+                Data Catalog
+            </p>
+            <p class="subtitle">
+                Collected and generated datasets are treated like software products with a development lifecycle,
+                semantic versioning, release notes, planned deprecation schedules, and tracked consumption metrics.
             </p>
         </div>
     </section>
@@ -427,6 +526,14 @@ SURGE_CONFIG='some yaml' surge
     </div>
 
 </div>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Innovisions</strong> by <a href="https://innovim.com">INNOVIM</a> &copy; 2021 All Rights Reserved.</a>.
+    </p>
+  </div>
+</footer>
 
 </body>
 

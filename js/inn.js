@@ -60,6 +60,29 @@ document.addEventListener("DOMContentLoaded", function() {
     ]);
     new flowjs.DiFlowChart("graph-comms", graph).draw();
 
+     graph = new flowjs.DiGraph();
+     graph.addPaths([
+        ["Data Source", "Extractor", "Metadata Extractor", "Metadata Loader", "Catalog"],
+        ["Data Source", "Extractor ", "Metadata Extractor", "Metadata Loader", "Catalog"],
+        ["Data Source", "Extractor  ", "Metadata Extractor", "Metadata Loader", "Catalog"],
+        ["Data Source", "Extractor   ", "Metadata Extractor", "Metadata Loader", "Catalog"],
+        ["Metadata Extractor", "Binary Loader", "Data Lake"],
+        ["Metadata Extractor", "Binary Loader", "Data Lake"],
+        ["Metadata Extractor", "Binary Loader", "Data Lake"],
+        ["Metadata Extractor", "Binary Loader", "Data Lake"]
+
+    ]);
+    new flowjs.DiFlowChart("graph-scale-ingress", graph).draw();
+
+    graph = new flowjs.DiGraph();
+     graph.addPaths([
+        ["Data Warehouse", "Distribution Node", "Load Balancer", "Consumer"],
+        ["Data Warehouse", "Distribution Node ", "Load Balancer", "Consumer"],
+        ["Data Warehouse", "Distribution Node  ", "Load Balancer", "Consumer"],
+        ["Data Warehouse", "Distribution Node   ", "Load Balancer", "Consumer"]
+    ]);
+    new flowjs.DiFlowChart("graph-scale-egress", graph).draw();
+
 
 });
 

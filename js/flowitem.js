@@ -16,7 +16,8 @@ flowjs.flowItem = function flowItem(x, y, text, radius, listener){
     this.fontSize = "16px";
     this.strokeWidth = 4;
 
-    if ( this.text.includes("Extractor") || this.text.includes("Transformer") || this.text.includes("Loader")){
+    if ( this.text.includes("Extractor") || this.text.includes("Transformer") ||
+         this.text.includes("Loader") || this.text.includes("Distribution")){
         this.background = "#1f2330";
     }
 
@@ -33,8 +34,8 @@ flowjs.flowItem = function flowItem(x, y, text, radius, listener){
     
     var that = this;
     var onclick = function(){
-        console.log("click");   
-        window.open(that.link);
+        // console.log("click");
+        // window.open(that.link);
     };
     
     var onmouseover = function(){
