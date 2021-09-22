@@ -57,8 +57,8 @@
                 Data Catalog
             </a>
 
-            <a class="navbar-item" data-page="integrity">
-                Provenance / Integrity
+            <a class="navbar-item" data-page="archiving">
+                Archiving
             </a>
 
             <a class="navbar-item">
@@ -178,8 +178,64 @@
     </section>
 </div>
 
+<div class="page" id="archiving">
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Archiving
+            </p>
+            <p class="subtitle">
+                Configure data retention policies using the same data stream tools used for transport and ETL.
+            </p>
+        </div>
+    </section>
+    <div class="section">
+        <div class="container">
+            <div class="content">
+                <div class="section">
+                <h2>Archival Capabilities</h2>
+                <p>Innovisions provides tools for managing a data archive and applying rules for moving data between
+                short and long-term storage locations, tracking provenance metadata, and assuring data integrity using
+                checksums stored with the metadata in the catalog.</p>
+
+                <h2>Data Streams</h2>
+                <p> Leveraging the same data stream configuration and surge ETL library used for data ingest, streams can
+                move data from Near-Real-Time access locations, to general data access storage, and finally to long-term
+                archival (cold) storage, based on configurable timelines and data retention policies.</p>
+
+                    <article class="message is-dark code">
+                    <div class="message-header">
+                        <p>Cold Storage Stream Example</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+             <pre><code class="language-yaml">
+    to_cold_archive:
+     extract:
+       type: filesystem
+       poll: 30min
+       locations:
+          modis:
+            directory: /var/data/modis
+            filter: *\.hdf5?
+            ttl: 1year
+     transform:
+       type: none
+     load:
+       type: aws_glacier
+       vault: my-cold-storage
+       connection: *aws_connection
+             </code></pre>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="page" id="catalog">
-    <section class="hero is-primary">
+    <section class="hero is-info">
         <div class="hero-body">
             <p class="title">
                 Data Catalog
@@ -253,7 +309,7 @@
                             </span>
                             MODIS/Aqua Total Precipitable Water Vapor 5-Min L2 Swath 1km and 5km - NRT <span
                                 class="tag">0.4M granules</span>
-                            <span class="tag is-primary is-light">2019-2021</span><span class="tag is-info is-light">netcdf</span><span
+                            <span class="tag is-primary is-light">2019-2021</span><span class="tag is-info is-light">hdf5</span><span
                                 class="tag is-danger is-light">Near Real-Time</span>
                         </a>
 
@@ -274,6 +330,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <div class="page" id="arch">
 

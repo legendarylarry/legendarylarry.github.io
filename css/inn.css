@@ -23,6 +23,15 @@ canvas {
   padding: 0;
 }
 
+.code pre,.code pre code {
+  background-color: #1f2330;
+}
+
+.code .message-body, .message-body pre code {
+  background-color: #1f2330;
+  padding: 0;
+}
+
 .dark {
   color: #1f2330;
 }
