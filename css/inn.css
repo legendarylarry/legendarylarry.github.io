@@ -27,6 +27,10 @@ canvas {
   color: #1f2330;
 }
 
+.panel-block .tag {
+  margin-left: 10px;
+}
+
 .node-config {
   display:none;
   position: fixed;

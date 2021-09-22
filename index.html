@@ -53,7 +53,7 @@
                 Security
             </a>
 
-             <a class="navbar-item" href="#" data-page="catalog">
+            <a class="navbar-item" href="#" data-page="catalog">
                 Data Catalog
             </a>
 
@@ -87,73 +87,79 @@
                 Scale Horizontally
             </p>
             <p class="subtitle">
-                Identical ETL nodes enable seamless horizontal scaling in a cloud environment without additional engineering.
+                Identical ETL nodes enable seamless horizontal scaling in a cloud environment without additional
+                engineering.
             </p>
         </div>
     </section>
 
-        <div classs="content">
-             <div class="columns">
-        <div class="column pad">
-            <article class="message is-info">
-                <div class="message-header">
-                    <p>Scalable Ingest</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                    <div class="content">
-                        <p>Extractor nodes pull data from an upstream source.</p>
-                        <p>
-                           The extractor nodes are clones, to add more ingest capacity, add more nodes or vertically
-                            scale individual node resources.
-                        </p>
+    <div classs="content">
+        <div class="columns">
+            <div class="column pad">
+                <article class="message is-info">
+                    <div class="message-header">
+                        <p>Scalable Ingest</p>
+                        <button class="delete" aria-label="delete"></button>
                     </div>
-                </div>
-            </article>
-
-             <article class="message is-success">
-                <div class="message-header">
-                    <p>Cost Efficiency</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                    <div class="content">
-
-                        <p>Balancing node power and number is an exercise in maximizing cost efficiency. More powerful
-                            nodes are more cost effective for sustained throughput, while smaller nodes which grow/shrink in number
-                            are more cost effective for handling bursts and lulls.
-                        </p>
-                        <p>
-                            We perform a quantitative analysis of data throughput to determine the most cost-effective
-                            implementation, but the flexibility of design means that pivoting to a new strategy is simple
-                            and quick.
-                        </p>
-
+                    <div class="message-body">
+                        <div class="content">
+                            <p>Extractor nodes pull data from an upstream source.</p>
+                            <p>
+                                The extractor nodes are clones, to add more ingest capacity, add more nodes or
+                                vertically
+                                scale individual node resources.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="message is-info">
-                <div class="message-header">
-                    <p>Scalable Distribution</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                    <div class="content">
-                        <p>Distribution nodes can likewise be simply scaled to meet needs. We place them behind a
-                        load balancer to retain a single access point for consumers.
-                        </p>
-
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Cost Efficiency</p>
+                        <button class="delete" aria-label="delete"></button>
                     </div>
-                </div>
-            </article>
-        </div>
-        <div class="column">
-            <canvas id="graph-scale-ingress" height="800"></canvas>
-             <canvas id="graph-scale-egress" height="800"></canvas>
+                    <div class="message-body">
+                        <div class="content">
+
+                            <p>Balancing node power and number is an exercise in maximizing cost efficiency. More
+                                powerful
+                                nodes are more cost effective for sustained throughput, while smaller nodes which
+                                grow/shrink in number
+                                are more cost effective for handling bursts and lulls.
+                            </p>
+                            <p>
+                                We perform a quantitative analysis of data throughput to determine the most
+                                cost-effective
+                                implementation, but the flexibility of design means that pivoting to a new strategy is
+                                simple
+                                and quick.
+                            </p>
+
+                        </div>
+                    </div>
+                </article>
+
+                <article class="message is-info">
+                    <div class="message-header">
+                        <p>Scalable Distribution</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        <div class="content">
+                            <p>Distribution nodes can likewise be simply scaled to meet needs. We place them behind a
+                                load balancer to retain a single access point for consumers.
+                            </p>
+
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="column">
+                <canvas id="graph-scale-ingress" height="800"></canvas>
+                <canvas id="graph-scale-egress" height="800"></canvas>
+            </div>
         </div>
     </div>
-        </div>
 </div>
 
 <div class="page" id="home">
@@ -184,55 +190,139 @@
             </p>
         </div>
     </section>
-</div>
+    <div class="section">
+        <div class="container">
+            <div class="content">
+                <div class="section">
+                    <h2>Common Metadata Schema</h2>
+                    <p>
+                        Inspired by our work on the NASA EOSDIS
+                        <a href="https://earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/cmr/umm">Unified
+                            Metadata Model</a>,
+                        we assess both short and long-term data ingest and data production interests, to develop a
+                        metadata schema which
+                        will contain metadata from disparate datasets in a common format. This common metadata schema
+                        enables the
+                        creation of a powerful data catalog which can then be levereged for many useful purposes.
+                    </p>
+                    <h2>Cross-Dataset Discovery and Aggregate Metrics</h2>
+                    <p>
+                        With a common metadata schema, search across datasets is possible since the datasets adhering to
+                        the schema have common indexable fields. Additionally, properties of the entire collection can
+                        be shown, e.g. temporal range, spatial extent, target interest/keywords, granule formats,
+                        further
+                        processing capabilities, documentation linkage, average granule size, resolution, etc.
+                    </p>
 
-<div class="page" id="arch">
+                    <nav class="panel">
+                        <p class="panel-heading">
+                            Data Catalog Search Example
+                        </p>
+                        <div class="panel-block">
+                            <p class="control has-icons-left">
+                                <input class="input" type="text" placeholder="Search">
+                                <span class="icon is-left">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                              </span>
+                            </p>
+                        </div>
+                        <p class="panel-tabs">
+                            <a class="is-active">All</a>
+                            <a>Public</a>
+                            <a>Restricted</a>
+                            <a>WMTS</a>
+                            <a>WCS</a>
+                        </p>
+                        <a class="panel-block is-active">
+                            <span class="panel-icon">
+                              <i class="fas fa-book" aria-hidden="true"></i>
+                            </span>
+                            SENTINEL-1A_SLC <span class="tag">1.1M granules</span> <span
+                                class="tag is-primary is-light">2010-2021</span><span class="tag is-info is-light">netcdf</span>
+                        </a>
+                        <a class="panel-block">
+                            <span class="panel-icon">
+                              <i class="fas fa-book" aria-hidden="true"></i>
+                            </span>
+                            SENTINEL-1A_DUAL_POL_GRD_HIGH_RES <span class="tag">0.9M granules</span> <span
+                                class="tag is-primary is-light">2012-2021</span><span class="tag is-info is-light">netcdf</span>
+                        </a>
+                        <a class="panel-block">
+                            <span class="panel-icon">
+                              <i class="fas fa-book" aria-hidden="true"></i>
+                            </span>
+                            MODIS/Aqua Total Precipitable Water Vapor 5-Min L2 Swath 1km and 5km - NRT <span
+                                class="tag">0.4M granules</span>
+                            <span class="tag is-primary is-light">2019-2021</span><span class="tag is-info is-light">netcdf</span><span
+                                class="tag is-danger is-light">Near Real-Time</span>
+                        </a>
 
-    <div class="columns">
-        <div class="column head">
-            <article class="message">
-                <div class="message-header">
-                    <p>Introduction</p>
-                    <button class="delete" aria-label="delete"></button>
+                        <div class="panel-block">
+                            <button class="button is-link is-outlined is-fullwidth">
+                                Reset all filters
+                            </button>
+                        </div>
+                    </nav>
+
+                    <h2>Innovisions Metadata Extractors</h2>
+                    <p>
+                        We have a collection of metadata extractors ready for use, with more being added regularly. These
+                        extractors can process common file formats including geospatial files, as well as known API
+                        response formats, and even extractors that can intuit common properties from previously unknown JSON schemas.
+                    </p>
                 </div>
-                <div class="message-body">
-                    Below are examples of data pipelines implemented with Innovisions tools and patterns. The framework
-                    is designed to be highly flexible while maintaining a simplified deployment.
-                </div>
-            </article>
+            </div>
         </div>
     </div>
 
-    <div class="columns">
-        <div class="column pad">
-            <article class="message is-primary">
-                <div class="message-header">
-                    <p>Operational Simplicity</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                    <div class="content">
-                        <p>Architectural flexibility is facilitated by our <b>surge</b> python
-                            library, which handles Extract, Transform, and Load (ETL) operations.</p>
-                        <p>
-                            Every <b class="dark">filled node</b> in this graph is an exact clone, running identical
-                            software. Their behavior is controlled
-                            by runtime configuration via environment variables.
-                        </p>
-                        <p>
-                            Mouse over the nodes to see their configuration.
-                        </p>
+    <div class="page" id="arch">
 
+        <div class="columns">
+            <div class="column head">
+                <article class="message">
+                    <div class="message-header">
+                        <p>Introduction</p>
+                        <button class="delete" aria-label="delete"></button>
                     </div>
-                </div>
-            </article>
+                    <div class="message-body">
+                        Below are examples of data pipelines implemented with Innovisions tools and patterns. The
+                        framework
+                        is designed to be highly flexible while maintaining a simplified deployment.
+                    </div>
+                </article>
+            </div>
+        </div>
 
-            <article class="node-config message is-dark" data-node="API Extractor">
-                <div class="message-header">
-                    <p>Surge Node Config</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
+        <div class="columns">
+            <div class="column pad">
+                <article class="message is-primary">
+                    <div class="message-header">
+                        <p>Operational Simplicity</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        <div class="content">
+                            <p>Architectural flexibility is facilitated by our <b>surge</b> python
+                                library, which handles Extract, Transform, and Load (ETL) operations.</p>
+                            <p>
+                                Every <b class="dark">filled node</b> in this graph is an exact clone, running identical
+                                software. Their behavior is controlled
+                                by runtime configuration via environment variables.
+                            </p>
+                            <p>
+                                Mouse over the nodes to see their configuration.
+                            </p>
+
+                        </div>
+                    </div>
+                </article>
+
+                <article class="node-config message is-dark" data-node="API Extractor">
+                    <div class="message-header">
+                        <p>Surge Node Config</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
              <pre><code class="language-yaml">
     cloudwatch_to_sqs:
      extract:
@@ -247,51 +337,52 @@
        queue: surge-all
        connection: *elk_connection
              </code></pre>
-                </div>
-            </article>
-        </div>
-        <div class="column">
-
-            <canvas id="graph-prime" height="800"></canvas>
-        </div>
-    </div>
-
-    <hr>
-
-
-    <div class="columns">
-        <div class="column pad">
-            <article class="message is-primary">
-                <div class="message-header">
-                    <p>Binary Data Ingest</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                    <div class="content">
-                        <p>This graph shows a simple data ingest pipeline, pulling data from typical systems used to
-                            disseminate
-                            Earth observation and weather data.</p>
-                        <p>
-                            Metadata from granules is extracted and stored in a structured data warehouse, and the
-                            granules themselves
-                            land on a distributed filesystem for further processing.
-                        </p>
-                        <p>
-                            Software which needs to perform additional processing can either tap into the message bus
-                            feeds, or look
-                            up the referenced granules from the data warehouse.
-                        </p>
-
                     </div>
-                </div>
-            </article>
+                </article>
+            </div>
+            <div class="column">
 
-            <article class="node-config message is-dark hide" data-node="API Extractor">
-                <div class="message-header">
-                    <p>Surge Python ETL Config YAML</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
+                <canvas id="graph-prime" height="800"></canvas>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <div class="columns">
+            <div class="column pad">
+                <article class="message is-primary">
+                    <div class="message-header">
+                        <p>Binary Data Ingest</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        <div class="content">
+                            <p>This graph shows a simple data ingest pipeline, pulling data from typical systems used to
+                                disseminate
+                                Earth observation and weather data.</p>
+                            <p>
+                                Metadata from granules is extracted and stored in a structured data warehouse, and the
+                                granules themselves
+                                land on a distributed filesystem for further processing.
+                            </p>
+                            <p>
+                                Software which needs to perform additional processing can either tap into the message
+                                bus
+                                feeds, or look
+                                up the referenced granules from the data warehouse.
+                            </p>
+
+                        </div>
+                    </div>
+                </article>
+
+                <article class="node-config message is-dark hide" data-node="API Extractor">
+                    <div class="message-header">
+                        <p>Surge Python ETL Config YAML</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
              <pre><code class="language-yaml">
     cloudwatch_to_sqs:
      extract:
@@ -306,42 +397,43 @@
        queue: surge-all
        connection: *elk_connection
              </code></pre>
-                </div>
-            </article>
-        </div>
-        <div class="column">
-
-            <canvas id="graph-granules" height="800"></canvas>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="columns">
-        <div class="column pad">
-            <article class="message is-primary">
-                <div class="message-header">
-                    <p>Organizational Communication</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
-                    <div class="content">
-                        <p>This graph shows aggregation of communications within an organization.</p>
                     </div>
-                    <div class="content">
-                        <p>Note that there is no message bus (e.g., RabbitMQ, Kafka, SQS) being used in this example,
-                            to demonstrate flexibility. However, use of a message bus is highly recommended for
-                            extensibility of the pipeline.</p>
-                    </div>
-                </div>
-            </article>
+                </article>
+            </div>
+            <div class="column">
 
-            <article class="node-config message is-dark hide" data-node="API Extractor">
-                <div class="message-header">
-                    <p>Surge Python ETL Config YAML</p>
-                    <button class="delete" aria-label="delete"></button>
-                </div>
-                <div class="message-body">
+                <canvas id="graph-granules" height="800"></canvas>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="columns">
+            <div class="column pad">
+                <article class="message is-primary">
+                    <div class="message-header">
+                        <p>Organizational Communication</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        <div class="content">
+                            <p>This graph shows aggregation of communications within an organization.</p>
+                        </div>
+                        <div class="content">
+                            <p>Note that there is no message bus (e.g., RabbitMQ, Kafka, SQS) being used in this
+                                example,
+                                to demonstrate flexibility. However, use of a message bus is highly recommended for
+                                extensibility of the pipeline.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="node-config message is-dark hide" data-node="API Extractor">
+                    <div class="message-header">
+                        <p>Surge Python ETL Config YAML</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
              <pre><code class="language-yaml">
     cloudwatch_to_sqs:
      extract:
@@ -356,52 +448,52 @@
        queue: surge-all
        connection: *elk_connection
              </code></pre>
-                </div>
-            </article>
-        </div>
-        <div class="column">
+                    </div>
+                </article>
+            </div>
+            <div class="column">
 
-            <canvas id="graph-comms" height="800"></canvas>
+                <canvas id="graph-comms" height="800"></canvas>
+            </div>
         </div>
+
     </div>
 
-</div>
 
+    <div class="page" id="surge">
 
-<div class="page" id="surge">
+        <section class="hero is-info">
+            <div class="hero-body">
+                <p class="title">
+                    Surge Python ETL Library
+                </p>
+                <p class="subtitle">
+                    The workhorse of data analytics pipeline, our library of connectors continues to grow, and is easily
+                    extensible to address the needs of any data processing system.
+                </p>
+            </div>
+        </section>
+        <br>
 
-     <section class="hero is-info">
-        <div class="hero-body">
-            <p class="title">
-                Surge Python ETL Library
-            </p>
-            <p class="subtitle">
-               The workhorse of data analytics pipeline, our library of connectors continues to grow, and is easily
-                extensible to address the needs of any data processing system.
-            </p>
-        </div>
-    </section>
-    <br>
+        <div class="container">
+            <div class="block">
+                Currently targeting python 3.6+. `pyenv` is recommended to manage python installs.
+            </div>
+            <div class="block">
+                You may need to install libsqlite3-dev with `apt` or equivalent before building python,
+                so you can use sqlite libs.
+            </div>
 
-    <div class="container">
-    <div class="block">
-        Currently targeting python 3.6+. `pyenv` is recommended to manage python installs.
-    </div>
-    <div class="block">
-        You may need to install libsqlite3-dev with `apt` or equivalent before building python,
-        so you can use sqlite libs.
-    </div>
-
-    <div class="block">
-        This command will make the `surge` command available in your shell
-        <pre><code class="language-bash">
+            <div class="block">
+                This command will make the `surge` command available in your shell
+                <pre><code class="language-bash">
         pip install --editable .
     </code></pre>
-    </div>
+            </div>
 
-    <div class="block">
-        Now you can run it, some examples:
-        <pre><code class="language-bash">
+            <div class="block">
+                Now you can run it, some examples:
+                <pre><code class="language-bash">
 surge --help
 surge --dry --verbose
 surge -s stream_name1,stream_name2 -vv -f path-to-config.yml
@@ -410,130 +502,132 @@ surge --list-extractors
 surge --list-transformers
 SURGE_CONFIG='some yaml' surge
 </code></pre>
-    </div>
-
-
-    <h2 class="subtitle">Components</h2>
-
-    `extract` module has classes that will consume upstream APIs
-
-    `transform` module has classes that will transform the API response data into the document format for elasticsearch
-
-    `load` module contains output classes, elasticsearch, SQS, and S3
-
-    `stream.py` starts and manages threads
-
-    `main.py` cli and entrypoint
-
-    ### Environment Variables
-
-    Post in slack if you need values for these.
-
-    ```shell script
-    export AWS_ACCESS_KEY_ID=
-    export AWS_SECRET_ACCESS_KEY=
-    export ELASTIC_USERNAME=
-    export ELASTIC_PASSWORD=
-    export JIRA_USERNAME=
-    export JIRA_PASSWORD=
-    export CONFLUENCE_USERNAME=
-    export CONFLUENCE_PASSWORD=
-    export SLACK_BOT_TOKEN=
-    ```
-
-    ### Adding/Implementing a Data Source
-
-    1. Add to config.yml
-    1. Create extractor class in appropriate place within surge.extract
-    1. Create transform class in appropriate place within surge.transform
-    1. Update ExtractorFactory._extractors and TransformerFactory._transformers
-
-    Note: `surge/extract/__init__.py` and `surge/transform/__init__.py` define base Extractor/Transformer classes
-    that you can extend for some common functions.
-        </div>
-</div>
-
-<div class="page" id="streams">
-
-    <section class="hero is-info">
-        <div class="hero-body">
-            <p class="title">
-                Data I/O : Stream-Based Configuration
-            </p>
-            <p class="subtitle">
-                Streams are the atomic configuration unit in Innovisions. A pipeline can contain many data streams, and
-                the process of moving
-                data from one point to another may utilize multiple streams. Each stream contains an Extract, Transform,
-                and
-                Load definition corresponding to the input data source, operations on the data, and the output
-                destination.
-            </p>
-        </div>
-    </section>
-    <br>
-
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Extract</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>,
-                        tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam
-                        gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend
-                        lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor
-                        ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales
-                        sem.
-                    </div>
-                </article>
             </div>
-            <div class="column">
-                <article class="message is-info">
-                    <div class="message-header">
-                        <p>Transform</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>,
-                        tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam
-                        gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend
-                        lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor
-                        ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales
-                        sem.
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-                <article class="message is-link">
-                    <div class="message-header">
-                        <p>Load</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>,
-                        tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam
-                        gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend
-                        lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor
-                        ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales
-                        sem.
-                    </div>
-                </article>
-            </div>
+
+
+            <h2 class="subtitle">Components</h2>
+
+            `extract` module has classes that will consume upstream APIs
+
+            `transform` module has classes that will transform the API response data into the document format for
+            elasticsearch
+
+            `load` module contains output classes, elasticsearch, SQS, and S3
+
+            `stream.py` starts and manages threads
+
+            `main.py` cli and entrypoint
+
+            ### Environment Variables
+
+            Post in slack if you need values for these.
+
+            ```shell script
+            export AWS_ACCESS_KEY_ID=
+            export AWS_SECRET_ACCESS_KEY=
+            export ELASTIC_USERNAME=
+            export ELASTIC_PASSWORD=
+            export JIRA_USERNAME=
+            export JIRA_PASSWORD=
+            export CONFLUENCE_USERNAME=
+            export CONFLUENCE_PASSWORD=
+            export SLACK_BOT_TOKEN=
+            ```
+
+            ### Adding/Implementing a Data Source
+
+            1. Add to config.yml
+            1. Create extractor class in appropriate place within surge.extract
+            1. Create transform class in appropriate place within surge.transform
+            1. Update ExtractorFactory._extractors and TransformerFactory._transformers
+
+            Note: `surge/extract/__init__.py` and `surge/transform/__init__.py` define base Extractor/Transformer
+            classes
+            that you can extend for some common functions.
         </div>
     </div>
 
-</div>
+    <div class="page" id="streams">
 
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Innovisions</strong> by <a href="https://innovim.com">INNOVIM</a> &copy; 2021 All Rights Reserved.</a>.
-    </p>
-  </div>
-</footer>
+        <section class="hero is-info">
+            <div class="hero-body">
+                <p class="title">
+                    Data I/O : Stream-Based Configuration
+                </p>
+                <p class="subtitle">
+                    Streams are the atomic configuration unit in Innovisions. A pipeline can contain many data streams,
+                    and
+                    the process of moving
+                    data from one point to another may utilize multiple streams. Each stream contains an Extract,
+                    Transform,
+                    and
+                    Load definition corresponding to the input data source, operations on the data, and the output
+                    destination.
+                </p>
+            </div>
+        </section>
+        <br>
+
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <article class="message is-primary">
+                        <div class="message-header">
+                            <p>Extract</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            Extractors in the surge ETL library are python classes which implement both a fetch()
+                            method, and a means to track progress so that subsequent executions can begin from the
+                            current
+                            position. Consuming a new API or data source only requires creating a new Extractor class
+                            and
+                            implementing the fetch() method.
+                        </div>
+                    </article>
+                </div>
+                <div class="column">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            <p>Transform</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            Transformers receive records from Extractors and use or modify the records before passing
+                            the results
+                            to a Loader for storage. Transformers can convert or restructure data formats, subset data
+                            for particular interesting fields, or combine multiple inputs to generate composite results.
+                        </div>
+                    </article>
+                </div>
+                <div class="column">
+                    <article class="message is-link">
+                        <div class="message-header">
+                            <p>Load</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            Loaders take the results of Transformers and store them. Loaders currently
+                            exist for multiple database types but also can outputt o filesystems, AWS S3, or other
+                            receiving APIs. Adding additional Loaders only requires
+                            creating a python class for the loader which implements the post(records: list) method.
+
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Innovisions</strong> by <a href="https://innovim.com">INNOVIM</a> &copy; 2021 All Rights
+                Reserved.</a>.
+            </p>
+        </div>
+    </footer>
 
 </body>
 
