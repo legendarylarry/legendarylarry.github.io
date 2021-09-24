@@ -4,12 +4,19 @@
 
     <meta charset="UTF-8">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <link rel="stylesheet" href="css/dracula.css">
+    <link rel="stylesheet" type="text/css" href="css/all.css"> <!--load all styles -->
     <!--    <link rel="stylesheet" href="shepherd.js/dist/css/shepherd.css"/>-->
 
     <link rel="stylesheet" href="css/inn.css">
+
+
 </head>
 
 
@@ -37,28 +44,24 @@
                 Architecture Patterns
             </a>
 
-            <a class="navbar-item" data-page="scale">
-                Scalability
-            </a>
-
             <a class="navbar-item" data-page="streams">
                 Data Streams
             </a>
 
-            <a class="navbar-item" href="#" data-page="surge">
-                Python Surge ETL
+            <a class="navbar-item" href="#" data-page="catalog">
+                Cataloging
+            </a>
+
+            <a class="navbar-item" data-page="archiving">
+                Archiving
             </a>
 
             <a class="navbar-item" data-page="security">
                 Security
             </a>
 
-            <a class="navbar-item" href="#" data-page="catalog">
-                Data Catalog
-            </a>
-
-            <a class="navbar-item" data-page="archiving">
-                Archiving
+            <a class="navbar-item" data-page="scale">
+                Scalability
             </a>
 
             <a class="navbar-item">
@@ -78,6 +81,69 @@
         </div>
     </div>
 </nav>
+
+<div class="page" id="security">
+
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Security
+            </p>
+            <p class="subtitle">
+                Aggregating System Reliability Engineering (SRE) data helps infrastructure
+                staff detect and investigate weaknesses.
+            </p>
+        </div>
+    </section>
+    <br>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <article class="message is-info">
+                    <div class="message-header">
+                        <p>ETL Subsystem Security</p>
+                    </div>
+                    <div class="message-body">
+                        <div class="content">
+                            <p>The ETL subsystem itself can be secured in several ways.</p>
+                            <p>
+                                TLS enabled on all transfers.
+                            </p>
+                            <p>
+                                Encryption at rest (if warranted).
+                            </p>
+                            <p>
+                                Authentication/Authorization gates on Message Busses and Datastores.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+             <div class="column">
+                 <article class="message is-info">
+                    <div class="message-header">
+                        <p>Enterprise Security</p>
+                    </div>
+                    <div class="message-body">
+                        <div class="content">
+                           <p>Data aggregation enhances security of the enterprise.</p>
+                            <p>
+                                Collection of SIEM data from IT tools.
+                            </p>
+                            <p>
+                                Automated anomaly detection with machine learning.
+                            </p>
+                            <p>
+                                Event-Based automated reactions to detected anomalies.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="page" id="scale">
 
@@ -176,6 +242,22 @@
             </p>
         </div>
     </section>
+<!--    <div class="container">-->
+<!--        <div class="columns">-->
+<!--            <div class="column is-centered">-->
+<!--                 <i class="fas fa-user fa-4x"></i>-->
+<!--                dfgdfgd-->
+<!--            </div>-->
+<!--             <div class="column is-centered">-->
+<!--                <i class="fas fa-user fa-4x"></i>-->
+<!--                 dfgdfgdgd-->
+<!--            </div>-->
+<!--             <div class="column is-centered">-->
+<!--                <i class="fas fa-user fa-4x"></i>-->
+<!--                 dfgfdgdfg-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 <div class="page" id="archiving">
@@ -197,6 +279,13 @@
                 <p>Innovisions provides tools for managing a data archive and applying rules for moving data between
                 short and long-term storage locations, tracking provenance metadata, and assuring data integrity using
                 checksums stored with the metadata in the catalog.</p>
+                    <br>
+
+                <div class="columns">
+                    <div class="column is-centered"><i class="fas fa-icicles fa-4x"></i>Cold</div>
+                    <div class="column is-centered"><i class="fas fa-mug-hot fa-4x"></i>Warm</div>
+                    <div class="column is-centered"><i class="fas fa-fire fa-4x"></i>Hot</div>
+                </div>
 
                 <h2>Data Streams</h2>
                 <p> Leveraging the same data stream configuration and surge ETL library used for data ingest, streams can
@@ -219,6 +308,7 @@
             directory: /var/data/modis
             filter: *\.hdf5?
             ttl: 1year
+            recursive: true
      transform:
        type: none
      load:
@@ -332,6 +422,28 @@
                         Use our surge ETL transformers to automatically generate data.json files and post them to
                         <a href="https://www.data.gov/">data.gov</a>.
                     </p>
+
+                         <article class="message is-dark code">
+                    <div class="message-header">
+                        <p>Data.gov data.json Generation Example</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+             <pre><code class="language-yaml">
+    to_data_gov:
+     extract:
+       type: postgres
+       poll: 1h
+       table: products
+       connection: *postgres_connection
+     transform:
+       type: datagov
+     load:
+       type: filesystem
+       path: /var/www/public/catalog/data.json
+             </code></pre>
+                    </div>
+                </article>
                 </div>
             </div>
         </div>
@@ -648,6 +760,148 @@ SURGE_CONFIG='some yaml' surge
                             implementing the fetch() method.
                         </div>
                     </article>
+
+                    <nav class="panel">
+                      <p class="panel-heading">
+                        Extractors
+                      </p>
+                      <div class="panel-block">
+                        <p class="control has-icons-left">
+                          <input class="input" type="text" placeholder="Search">
+                          <span class="icon is-left">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <p class="panel-tabs">
+                        <a class="is-active">All</a>
+                        <a>Infrastructure</a>
+                        <a>Communication</a>
+                        <a>Standardized</a>
+                        <a>Other</a>
+                      </p>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-random" aria-hidden="true"></i>
+                        </span>
+                        Kafka
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-random" aria-hidden="true"></i>
+                        </span>
+                        RabbitMQ
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-atlassian" aria-hidden="true"></i>
+                        </span>
+                        Bamboo
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-bitbucket" aria-hidden="true"></i>
+                        </span>
+                        Bitbucket
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-jira" aria-hidden="true"></i>
+                        </span>
+                        Jira
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-confluence" aria-hidden="true"></i>
+                        </span>
+                        Confluence
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-slack" aria-hidden="true"></i>
+                        </span>
+                        Slack
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-code-branch" aria-hidden="true"></i>
+                        </span>
+                        Suricata
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-code-branch" aria-hidden="true"></i>
+                        </span>
+                        Uptrends
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        S3
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        SQS
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Cost Calculator
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Inspector
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Cloudwatch
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Cost Explorer
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        IAM Analyzer
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-folder" aria-hidden="true"></i>
+                        </span>
+                       Filesystem
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-folder" aria-hidden="true"></i>
+                        </span>
+                       OpenDAP
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-folder" aria-hidden="true"></i>
+                        </span>
+                       FTP
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-folder" aria-hidden="true"></i>
+                        </span>
+                       OpenSearch
+                      </a>
+
+                    </nav>
                 </div>
                 <div class="column">
                     <article class="message is-info">
@@ -662,6 +916,135 @@ SURGE_CONFIG='some yaml' surge
                             for particular interesting fields, or combine multiple inputs to generate composite results.
                         </div>
                     </article>
+
+                    <nav class="panel">
+                      <p class="panel-heading">
+                        Transformers
+                      </p>
+                     <div class="panel-block">
+                        <p class="control has-icons-left">
+                          <input class="input" type="text" placeholder="Search">
+                          <span class="icon is-left">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <p class="panel-tabs">
+                        <a class="is-active">All</a>
+                        <a>Infrastructure</a>
+                        <a>Communication</a>
+                        <a>Standardized</a>
+                        <a>Other</a>
+                      </p>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        </span>
+                        NetCDF
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        </span>
+                        HDF5
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        </span>
+                        HDF-EOS
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-atlassian" aria-hidden="true"></i>
+                        </span>
+                        Bamboo
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-bitbucket" aria-hidden="true"></i>
+                        </span>
+                        Bitbucket
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-jira" aria-hidden="true"></i>
+                        </span>
+                        Jira
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-confluence" aria-hidden="true"></i>
+                        </span>
+                        Confluence
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-code-branch" aria-hidden="true"></i>
+                        </span>
+                        Slack
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-code-branch" aria-hidden="true"></i>
+                        </span>
+                        Suricata
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-code-branch" aria-hidden="true"></i>
+                        </span>
+                        Uptrends
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-code-branch" aria-hidden="true"></i>
+                        </span>
+                        Zap
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Cost Calculator
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Inspector
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Cloudwatch
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        Cost Explorer
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        IAM Analyzer
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-file-alt" aria-hidden="true"></i>
+                        </span>
+                        JSON
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-file-alt" aria-hidden="true"></i>
+                        </span>
+                        XML
+                      </a>
+                    </nav>
                 </div>
                 <div class="column">
                     <article class="message is-link">
@@ -677,6 +1060,74 @@ SURGE_CONFIG='some yaml' surge
 
                         </div>
                     </article>
+
+                    <nav class="panel">
+                      <p class="panel-heading">
+                        Loaders
+                      </p>
+                      <div class="panel-block">
+                        <p class="control has-icons-left">
+                          <input class="input" type="text" placeholder="Search">
+                          <span class="icon is-left">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <p class="panel-tabs">
+                        <a class="is-active">All</a>
+                        <a>Database</a>
+                        <a>Message Bus</a>
+                        <a>Other</a>
+                      </p>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-random" aria-hidden="true"></i>
+                        </span>
+                        Kafka
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-random" aria-hidden="true"></i>
+                        </span>
+                        RabbitMQ
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        SQS
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-database" aria-hidden="true"></i>
+                        </span>
+                        ElasticSearch
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-database" aria-hidden="true"></i>
+                        </span>
+                        PostgreSQL
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                        S3
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fab fa-aws" aria-hidden="true"></i>
+                        </span>
+                       Cloudwatch Logs
+                      </a>
+                      <a class="panel-block">
+                        <span class="panel-icon">
+                          <i class="fas fa-folder" aria-hidden="true"></i>
+                        </span>
+                       Filesystem
+                      </a>
+                    </nav>
                 </div>
             </div>
         </div>
