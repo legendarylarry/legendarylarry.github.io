@@ -61,11 +61,12 @@ function get_log() {
             var content_size;
 
             if (xhr.status === 206) {
-                var c_r = xhr.getResponseHeader("Content-Range");
-                if (!c_r)
-                    throw "Server did not respond with a Content-Range";
+                // var c_r = xhr.getResponseHeader("Content-Range");
+                // if (!c_r)
+                //     throw "Server did not respond with a Content-Range";
 
-                log_file_size = parseInt2(c_r.split("/")[1]);
+                // log_file_size = parseInt2(c_r.split("/")[1]);
+                log_file_size = parseInt2(xhr.getResponseHeader("Content-Length"));
                 content_size = parseInt2(xhr.getResponseHeader("Content-Length"));
             } else if (xhr.status === 200) {
                 if (must_get_206)
@@ -112,7 +113,7 @@ function get_log() {
         error: function (xhr, s, t) {
             loading = false;
 
-            if (xhr.status === 416 || xhr.status == 404) {
+            // if (xhr.status === 416 || xhr.status == 404) {
                 /* 416: Requested range not satisfiable: log was truncated. */
                 /* 404: Retry soon, I guess */
 
@@ -121,9 +122,9 @@ function get_log() {
                 show_log();
 
                 setTimeout(get_log, poll);
-            } else {
-                throw "Unknown AJAX Error (status " + xhr.status + ")";
-            }
+            // } else {
+            //     throw "Unknown AJAX Error (status " + xhr.status + ")";
+            // }
         }
     });
 }
