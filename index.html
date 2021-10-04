@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <link rel="stylesheet" href="css/dracula.css">
     <link rel="stylesheet" type="text/css" href="css/all.css"> <!--load all styles -->
+    <link type="text/css" href="css/logtail.css" >
     <!--    <link rel="stylesheet" href="shepherd.js/dist/css/shepherd.css"/>-->
 
     <link rel="stylesheet" href="css/inn.css">
@@ -60,7 +61,7 @@
                 Scalability
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" data-page="live">
                 Live Machine Learning Demo
             </a>
 
@@ -69,14 +70,132 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-<!--                    <a class="button is-primary">-->
-<!--                        <strong>Contact Us</strong>-->
-<!--                    </a>-->
+                    <!--                    <a class="button is-primary">-->
+                    <!--                        <strong>Contact Us</strong>-->
+                    <!--                    </a>-->
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
+<div class="page" id="live">
+
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Machine Learning Example
+            </p>
+            <p class="subtitle">
+                A simple pipeline which reads millions of records containing MS Windows system specifications and
+                scores their likelihood of being infected with malware.
+            </p>
+        </div>
+    </section>
+    <br>
+
+    <div class="container">
+
+        <div class="columns">
+            <div class="column">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Extraction
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <b>N</b> records obtained from Microsoft Windows Defender ingested, cleaned, and inserted
+                            into
+                            the message bus.
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Info</a>
+                        <a href="#" class="card-footer-item">Config</a>
+                        <a href="#" class="card-footer-item">Data</a>
+                    </footer>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Message Bus
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <b>N</b> records are in the message bus awaiting processing.
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Info</a>
+                        <a href="#" class="card-footer-item">Config</a>
+                        <a href="#" class="card-footer-item">Data</a>
+                    </footer>
+                </div>
+
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Machine Learning
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <b>N</b> records have been scored by the Neural Network.
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Info</a>
+                        <a href="#" class="card-footer-item">Config</a>
+                        <a href="#" class="card-footer-item">Data</a>
+                    </footer>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            ElasticSearch
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <b>N</b> scored records have been inserted into the data warehouse and are ready for
+                            exploration and analysis.
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Info</a>
+                        <a href="#" class="card-footer-item">Config</a>
+                        <a href="#" class="card-footer-item">Data</a>
+                    </footer>
+                </div>
+            </div>
+
+        </div>
+
+        <h1>Logs</h1>
+        <div class="tabs">
+            <ul>
+                <li class="is-active"><a>Extractor</a></li>
+                <li><a>Transformer</a></li>
+                <li><a>ML Worker</a></li>
+            </ul>
+        </div>
+        <pre id="logs">
+
+        </pre>
+    </div>
+
+</div>
 
 <div class="page" id="security">
 
@@ -116,14 +235,14 @@
                     </div>
                 </article>
             </div>
-             <div class="column">
-                 <article class="message is-info">
+            <div class="column">
+                <article class="message is-info">
                     <div class="message-header">
                         <p>Enterprise Security</p>
                     </div>
                     <div class="message-body">
                         <div class="content">
-                           <p>Data aggregation enhances security of the enterprise.</p>
+                            <p>Data aggregation enhances security of the enterprise.</p>
                             <p>
                                 Collection of SIEM data from IT tools.
                             </p>
@@ -226,21 +345,21 @@
 
 <div class="page" id="home">
 
-<div class="card ctapanel">
-  <div class="card-content">
-      <h1 class="title">Innovisions</h1>
-      <h1 class="subtitle">A Rapid Prototyping Environment for <span class="typing-container">
+    <div class="card ctapanel">
+        <div class="card-content">
+            <h1 class="title">Innovisions</h1>
+            <h1 class="subtitle">A Rapid Prototyping Environment for <span class="typing-container">
       <span class="typed-text"></span><span class="cursor">&nbsp;</span>
       </span></h1>
 
-      <div class="ctabuttons">
-         <a class="button is-primary" data-page="arch">
-         <strong>Explore</strong>
-       </a>
-      </div>
+            <div class="ctabuttons">
+                <a class="button is-primary" data-page="arch">
+                    <strong>Explore</strong>
+                </a>
+            </div>
 
-  </div>
-</div>
+        </div>
+    </div>
 
     <div id="particles-js"></div>
 </div>
@@ -260,29 +379,32 @@
         <div class="container">
             <div class="content">
                 <div class="section">
-                <h2>Archival Capabilities</h2>
-                <p>Innovisions provides tools for managing a data archive and applying rules for moving data between
-                short and long-term storage locations, tracking provenance metadata, and assuring data integrity using
-                checksums stored with the metadata in the catalog.</p>
+                    <h2>Archival Capabilities</h2>
+                    <p>Innovisions provides tools for managing a data archive and applying rules for moving data between
+                        short and long-term storage locations, tracking provenance metadata, and assuring data integrity
+                        using
+                        checksums stored with the metadata in the catalog.</p>
                     <br>
 
-                <div class="columns">
-                    <div class="column is-centered"><i class="fas fa-icicles fa-4x"></i>Cold<br>AWS Glacier</div>
-                    <div class="column is-centered"><i class="fas fa-mug-hot fa-4x"></i>Warm<br>AWS S3</div>
-                    <div class="column is-centered"><i class="fas fa-fire fa-4x"></i>Hot<br>AWS EBS SSD</div>
-                </div>
+                    <div class="columns">
+                        <div class="column is-centered"><i class="fas fa-icicles fa-4x"></i>Cold<br>AWS Glacier</div>
+                        <div class="column is-centered"><i class="fas fa-mug-hot fa-4x"></i>Warm<br>AWS S3</div>
+                        <div class="column is-centered"><i class="fas fa-fire fa-4x"></i>Hot<br>AWS EBS SSD</div>
+                    </div>
 
-                <h2>Data Streams</h2>
-                <p> Leveraging the same data stream configuration and surge ETL library used for data ingest, streams can
-                move data from Near-Real-Time access locations, to general data access storage, and finally to long-term
-                archival (cold) storage, based on configurable timelines and data retention policies.</p>
+                    <h2>Data Streams</h2>
+                    <p> Leveraging the same data stream configuration and surge ETL library used for data ingest,
+                        streams can
+                        move data from Near-Real-Time access locations, to general data access storage, and finally to
+                        long-term
+                        archival (cold) storage, based on configurable timelines and data retention policies.</p>
 
                     <article class="message is-dark code">
-                    <div class="message-header">
-                        <p>Cold Storage Stream Example</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
+                        <div class="message-header">
+                            <p>Cold Storage Stream Example</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body">
              <pre><code class="language-yaml">
     to_cold_archive:
      extract:
@@ -301,8 +423,8 @@
        vault: my-cold-storage
        connection: *aws_connection
              </code></pre>
-                    </div>
-                </article>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -392,9 +514,11 @@
 
                     <h2>Innovisions Metadata Extractors</h2>
                     <p>
-                        We have a collection of metadata extractors ready for use, with more being added regularly. These
+                        We have a collection of metadata extractors ready for use, with more being added regularly.
+                        These
                         extractors can process common file formats including geospatial files, as well as known API
-                        response formats, and even extractors that can intuit common properties from previously unknown JSON schemas.
+                        response formats, and even extractors that can intuit common properties from previously unknown
+                        JSON schemas.
                     </p>
 
                     <h2>Create a Direct Pipeline to Data.gov</h2>
@@ -403,12 +527,12 @@
                         <a href="https://www.data.gov/">data.gov</a>.
                     </p>
 
-                         <article class="message is-dark code">
-                    <div class="message-header">
-                        <p>Data.gov data.json Generation Example</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
+                    <article class="message is-dark code">
+                        <div class="message-header">
+                            <p>Data.gov data.json Generation Example</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body">
              <pre><code class="language-yaml">
     to_data_gov:
      extract:
@@ -422,60 +546,60 @@
        type: filesystem
        path: /var/www/public/catalog/data.json
              </code></pre>
-                    </div>
-                </article>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-    <div class="page" id="arch">
+<div class="page" id="arch">
 
-        <section class="hero is-info">
-            <div class="hero-body">
-                <p class="title">
-                    Adaptable Architecture
-                </p>
-                <p class="subtitle">
-                    Below are examples of data pipelines implemented with Innovisions tools and patterns. The
-                        framework
-                        is designed to be highly flexible while maintaining a simplified deployment.
-                </p>
-            </div>
-        </section>
-        <br>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Adaptable Architecture
+            </p>
+            <p class="subtitle">
+                Below are examples of data pipelines implemented with Innovisions tools and patterns. The
+                framework
+                is designed to be highly flexible while maintaining a simplified deployment.
+            </p>
+        </div>
+    </section>
+    <br>
 
-        <div class="columns">
-            <div class="column pad">
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Operational Simplicity</p>
-                        <button class="delete" aria-label="delete"></button>
+    <div class="columns">
+        <div class="column pad">
+            <article class="message is-primary">
+                <div class="message-header">
+                    <p>Operational Simplicity</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                    <div class="content">
+                        <p>Architectural flexibility is facilitated by our <b>surge</b> python
+                            library, which handles Extract, Transform, and Load (ETL) operations.</p>
+                        <p>
+                            Every <b class="dark">filled node</b> in this graph is an exact clone, running identical
+                            software. Their behavior is controlled
+                            by runtime configuration via environment variables.
+                        </p>
+                        <!--                            <p>-->
+                        <!--                                Mouse over the nodes to see their configuration.-->
+                        <!--                            </p>-->
+
                     </div>
-                    <div class="message-body">
-                        <div class="content">
-                            <p>Architectural flexibility is facilitated by our <b>surge</b> python
-                                library, which handles Extract, Transform, and Load (ETL) operations.</p>
-                            <p>
-                                Every <b class="dark">filled node</b> in this graph is an exact clone, running identical
-                                software. Their behavior is controlled
-                                by runtime configuration via environment variables.
-                            </p>
-<!--                            <p>-->
-<!--                                Mouse over the nodes to see their configuration.-->
-<!--                            </p>-->
+                </div>
+            </article>
 
-                        </div>
-                    </div>
-                </article>
-
-                <article class="node-config message is-dark" data-node="API Extractor">
-                    <div class="message-header">
-                        <p>Surge Node Config</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
+            <article class="node-config message is-dark" data-node="API Extractor">
+                <div class="message-header">
+                    <p>Surge Node Config</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
              <pre><code class="language-yaml">
     cloudwatch_to_sqs:
      extract:
@@ -490,163 +614,163 @@
        queue: surge-all
        connection: *elk_connection
              </code></pre>
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-
-                <canvas id="graph-prime" height="800"></canvas>
-            </div>
+                </div>
+            </article>
         </div>
+        <div class="column">
 
-        <hr>
-
-
-        <div class="columns">
-            <div class="column pad">
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Binary Data Ingest</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-                        <div class="content">
-                            <p>This graph shows a simple data ingest pipeline, pulling data from typical systems used to
-                                disseminate
-                                Earth observation and weather data.</p>
-                            <p>
-                                Metadata from granules is extracted and stored in a structured data warehouse, and the
-                                granules themselves
-                                land on a distributed filesystem for further processing.
-                            </p>
-                            <p>
-                                Software which needs to perform additional processing can either tap into the message
-                                bus
-                                feeds, or look
-                                up the referenced granules from the data warehouse.
-                            </p>
-
-                        </div>
-                    </div>
-                </article>
-
-                <article class="node-config message is-dark hide" data-node="API Extractor">
-                    <div class="message-header">
-                        <p>Surge Python ETL Config YAML</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-             <pre><code class="language-yaml">
-    cloudwatch_to_sqs:
-     extract:
-       type: aws_cloudwatch_logs
-       log_streams:
-         - surge-mock:surge-mock-stream
-       connection: *aws_connection
-     transform:
-       type: aws_cloudwatch_logs
-     load:
-       type: sqs
-       queue: surge-all
-       connection: *elk_connection
-             </code></pre>
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-
-                <canvas id="graph-granules" height="800"></canvas>
-            </div>
+            <canvas id="graph-prime" height="800"></canvas>
         </div>
-
-        <hr>
-
-        <div class="columns">
-            <div class="column pad">
-                <article class="message is-primary">
-                    <div class="message-header">
-                        <p>Organizational Communication</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-                        <div class="content">
-                            <p>This graph shows aggregation of communications within an organization.</p>
-                        </div>
-                        <div class="content">
-                            <p>Note that there is no message bus (e.g., RabbitMQ, Kafka, SQS) being used in this
-                                example,
-                                to demonstrate flexibility. However, use of a message bus is highly recommended for
-                                extensibility of the pipeline.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="node-config message is-dark hide" data-node="API Extractor">
-                    <div class="message-header">
-                        <p>Surge Python ETL Config YAML</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-             <pre><code class="language-yaml">
-    cloudwatch_to_sqs:
-     extract:
-       type: aws_cloudwatch_logs
-       log_streams:
-         - surge-mock:surge-mock-stream
-       connection: *aws_connection
-     transform:
-       type: aws_cloudwatch_logs
-     load:
-       type: sqs
-       queue: surge-all
-       connection: *elk_connection
-             </code></pre>
-                    </div>
-                </article>
-            </div>
-            <div class="column">
-
-                <canvas id="graph-comms" height="800"></canvas>
-            </div>
-        </div>
-
     </div>
 
+    <hr>
 
-    <div class="page" id="surge">
 
-        <section class="hero is-info">
-            <div class="hero-body">
-                <p class="title">
-                    Surge Python ETL Library
-                </p>
-                <p class="subtitle">
-                    The workhorse of data analytics pipeline, our library of connectors continues to grow, and is easily
-                    extensible to address the needs of any data processing system.
-                </p>
-            </div>
-        </section>
-        <br>
+    <div class="columns">
+        <div class="column pad">
+            <article class="message is-primary">
+                <div class="message-header">
+                    <p>Binary Data Ingest</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                    <div class="content">
+                        <p>This graph shows a simple data ingest pipeline, pulling data from typical systems used to
+                            disseminate
+                            Earth observation and weather data.</p>
+                        <p>
+                            Metadata from granules is extracted and stored in a structured data warehouse, and the
+                            granules themselves
+                            land on a distributed filesystem for further processing.
+                        </p>
+                        <p>
+                            Software which needs to perform additional processing can either tap into the message
+                            bus
+                            feeds, or look
+                            up the referenced granules from the data warehouse.
+                        </p>
 
-        <div class="container">
-            <div class="block">
-                Currently targeting python 3.6+. `pyenv` is recommended to manage python installs.
-            </div>
-            <div class="block">
-                You may need to install libsqlite3-dev with `apt` or equivalent before building python,
-                so you can use sqlite libs.
-            </div>
+                    </div>
+                </div>
+            </article>
 
-            <div class="block">
-                This command will make the `surge` command available in your shell
-                <pre><code class="language-bash">
+            <article class="node-config message is-dark hide" data-node="API Extractor">
+                <div class="message-header">
+                    <p>Surge Python ETL Config YAML</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+             <pre><code class="language-yaml">
+    cloudwatch_to_sqs:
+     extract:
+       type: aws_cloudwatch_logs
+       log_streams:
+         - surge-mock:surge-mock-stream
+       connection: *aws_connection
+     transform:
+       type: aws_cloudwatch_logs
+     load:
+       type: sqs
+       queue: surge-all
+       connection: *elk_connection
+             </code></pre>
+                </div>
+            </article>
+        </div>
+        <div class="column">
+
+            <canvas id="graph-granules" height="800"></canvas>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="columns">
+        <div class="column pad">
+            <article class="message is-primary">
+                <div class="message-header">
+                    <p>Organizational Communication</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                    <div class="content">
+                        <p>This graph shows aggregation of communications within an organization.</p>
+                    </div>
+                    <div class="content">
+                        <p>Note that there is no message bus (e.g., RabbitMQ, Kafka, SQS) being used in this
+                            example,
+                            to demonstrate flexibility. However, use of a message bus is highly recommended for
+                            extensibility of the pipeline.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="node-config message is-dark hide" data-node="API Extractor">
+                <div class="message-header">
+                    <p>Surge Python ETL Config YAML</p>
+                    <button class="delete" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+             <pre><code class="language-yaml">
+    cloudwatch_to_sqs:
+     extract:
+       type: aws_cloudwatch_logs
+       log_streams:
+         - surge-mock:surge-mock-stream
+       connection: *aws_connection
+     transform:
+       type: aws_cloudwatch_logs
+     load:
+       type: sqs
+       queue: surge-all
+       connection: *elk_connection
+             </code></pre>
+                </div>
+            </article>
+        </div>
+        <div class="column">
+
+            <canvas id="graph-comms" height="800"></canvas>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="page" id="surge">
+
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Surge Python ETL Library
+            </p>
+            <p class="subtitle">
+                The workhorse of data analytics pipeline, our library of connectors continues to grow, and is easily
+                extensible to address the needs of any data processing system.
+            </p>
+        </div>
+    </section>
+    <br>
+
+    <div class="container">
+        <div class="block">
+            Currently targeting python 3.6+. `pyenv` is recommended to manage python installs.
+        </div>
+        <div class="block">
+            You may need to install libsqlite3-dev with `apt` or equivalent before building python,
+            so you can use sqlite libs.
+        </div>
+
+        <div class="block">
+            This command will make the `surge` command available in your shell
+            <pre><code class="language-bash">
         pip install --editable .
     </code></pre>
-            </div>
+        </div>
 
-            <div class="block">
-                Now you can run it, some examples:
-                <pre><code class="language-bash">
+        <div class="block">
+            Now you can run it, some examples:
+            <pre><code class="language-bash">
 surge --help
 surge --dry --verbose
 surge -s stream_name1,stream_name2 -vv -f path-to-config.yml
@@ -655,471 +779,471 @@ surge --list-extractors
 surge --list-transformers
 SURGE_CONFIG='some yaml' surge
 </code></pre>
-            </div>
-
-
-            <h2 class="subtitle">Components</h2>
-
-            `extract` module has classes that will consume upstream APIs
-
-            `transform` module has classes that will transform the API response data into the document format for
-            elasticsearch
-
-            `load` module contains output classes, elasticsearch, SQS, and S3
-
-            `stream.py` starts and manages threads
-
-            `main.py` cli and entrypoint
-
-            ### Environment Variables
-
-            Post in slack if you need values for these.
-
-            ```shell script
-            export AWS_ACCESS_KEY_ID=
-            export AWS_SECRET_ACCESS_KEY=
-            export ELASTIC_USERNAME=
-            export ELASTIC_PASSWORD=
-            export JIRA_USERNAME=
-            export JIRA_PASSWORD=
-            export CONFLUENCE_USERNAME=
-            export CONFLUENCE_PASSWORD=
-            export SLACK_BOT_TOKEN=
-            ```
-
-            ### Adding/Implementing a Data Source
-
-            1. Add to config.yml
-            1. Create extractor class in appropriate place within surge.extract
-            1. Create transform class in appropriate place within surge.transform
-            1. Update ExtractorFactory._extractors and TransformerFactory._transformers
-
-            Note: `surge/extract/__init__.py` and `surge/transform/__init__.py` define base Extractor/Transformer
-            classes
-            that you can extend for some common functions.
         </div>
+
+
+        <h2 class="subtitle">Components</h2>
+
+        `extract` module has classes that will consume upstream APIs
+
+        `transform` module has classes that will transform the API response data into the document format for
+        elasticsearch
+
+        `load` module contains output classes, elasticsearch, SQS, and S3
+
+        `stream.py` starts and manages threads
+
+        `main.py` cli and entrypoint
+
+        ### Environment Variables
+
+        Post in slack if you need values for these.
+
+        ```shell script
+        export AWS_ACCESS_KEY_ID=
+        export AWS_SECRET_ACCESS_KEY=
+        export ELASTIC_USERNAME=
+        export ELASTIC_PASSWORD=
+        export JIRA_USERNAME=
+        export JIRA_PASSWORD=
+        export CONFLUENCE_USERNAME=
+        export CONFLUENCE_PASSWORD=
+        export SLACK_BOT_TOKEN=
+        ```
+
+        ### Adding/Implementing a Data Source
+
+        1. Add to config.yml
+        1. Create extractor class in appropriate place within surge.extract
+        1. Create transform class in appropriate place within surge.transform
+        1. Update ExtractorFactory._extractors and TransformerFactory._transformers
+
+        Note: `surge/extract/__init__.py` and `surge/transform/__init__.py` define base Extractor/Transformer
+        classes
+        that you can extend for some common functions.
     </div>
+</div>
 
-    <div class="page" id="streams">
+<div class="page" id="streams">
 
-        <section class="hero is-info">
-            <div class="hero-body">
-                <p class="title">
-                    Data I/O : Stream-Based Configuration
-                </p>
-                <p class="subtitle">
-                    Streams are the atomic configuration unit in Innovisions. A pipeline can contain many data streams,
-                    and
-                    the process of moving
-                    data from one point to another may utilize multiple streams. Each stream contains an Extract,
-                    Transform,
-                    and
-                    Load definition corresponding to the input data source, operations on the data, and the output
-                    destination.
-                </p>
-            </div>
-        </section>
-        <br>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <p class="title">
+                Data I/O : Stream-Based Configuration
+            </p>
+            <p class="subtitle">
+                Streams are the atomic configuration unit in Innovisions. A pipeline can contain many data streams,
+                and
+                the process of moving
+                data from one point to another may utilize multiple streams. Each stream contains an Extract,
+                Transform,
+                and
+                Load definition corresponding to the input data source, operations on the data, and the output
+                destination.
+            </p>
+        </div>
+    </section>
+    <br>
 
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <article class="message is-primary">
-                        <div class="message-header">
-                            <p>Extract</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
-                        <div class="message-body">
-                            Extractors in the surge ETL library are python classes which implement both a fetch()
-                            method, and a means to track progress so that subsequent executions can begin from the
-                            current
-                            position. Consuming a new API or data source only requires creating a new Extractor class
-                            and
-                            implementing the fetch() method.
-                        </div>
-                    </article>
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <article class="message is-primary">
+                    <div class="message-header">
+                        <p>Extract</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        Extractors in the surge ETL library are python classes which implement both a fetch()
+                        method, and a means to track progress so that subsequent executions can begin from the
+                        current
+                        position. Consuming a new API or data source only requires creating a new Extractor class
+                        and
+                        implementing the fetch() method.
+                    </div>
+                </article>
 
-                    <nav class="panel">
-                      <p class="panel-heading">
+                <nav class="panel">
+                    <p class="panel-heading">
                         Extractors
-                      </p>
-                      <div class="panel-block">
+                    </p>
+                    <div class="panel-block">
                         <p class="control has-icons-left">
-                          <input class="input" type="text" placeholder="Search">
-                          <span class="icon is-left">
+                            <input class="input" type="text" placeholder="Search">
+                            <span class="icon is-left">
                             <i class="fas fa-search" aria-hidden="true"></i>
                           </span>
                         </p>
-                      </div>
-                      <p class="panel-tabs">
+                    </div>
+                    <p class="panel-tabs">
                         <a class="is-active">All</a>
                         <a>Infrastructure</a>
                         <a>Communication</a>
                         <a>Standardized</a>
                         <a>Other</a>
-                      </p>
-                      <a class="panel-block">
+                    </p>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-random" aria-hidden="true"></i>
                         </span>
                         Kafka
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-random" aria-hidden="true"></i>
                         </span>
                         RabbitMQ
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-atlassian" aria-hidden="true"></i>
                         </span>
                         Bamboo
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-bitbucket" aria-hidden="true"></i>
                         </span>
                         Bitbucket
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-jira" aria-hidden="true"></i>
                         </span>
                         Jira
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-confluence" aria-hidden="true"></i>
                         </span>
                         Confluence
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-slack" aria-hidden="true"></i>
                         </span>
                         Slack
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-code-branch" aria-hidden="true"></i>
                         </span>
                         Suricata
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-code-branch" aria-hidden="true"></i>
                         </span>
                         Uptrends
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         S3
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         SQS
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Cost Calculator
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Inspector
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Cloudwatch
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Cost Explorer
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         IAM Analyzer
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-folder" aria-hidden="true"></i>
                         </span>
-                       Filesystem
-                      </a>
-                      <a class="panel-block">
+                        Filesystem
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-folder" aria-hidden="true"></i>
                         </span>
-                       OpenDAP
-                      </a>
-                      <a class="panel-block">
+                        OpenDAP
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-folder" aria-hidden="true"></i>
                         </span>
-                       FTP
-                      </a>
-                      <a class="panel-block">
+                        FTP
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-folder" aria-hidden="true"></i>
                         </span>
-                       OpenSearch
-                      </a>
+                        OpenSearch
+                    </a>
 
-                    </nav>
-                </div>
-                <div class="column">
-                    <article class="message is-info">
-                        <div class="message-header">
-                            <p>Transform</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
-                        <div class="message-body">
-                            Transformers receive records from Extractors and use or modify the records before passing
-                            the results
-                            to a Loader for storage. Transformers can convert or restructure data formats, subset data
-                            for particular interesting fields, or combine multiple inputs to generate composite results.
-                        </div>
-                    </article>
+                </nav>
+            </div>
+            <div class="column">
+                <article class="message is-info">
+                    <div class="message-header">
+                        <p>Transform</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        Transformers receive records from Extractors and use or modify the records before passing
+                        the results
+                        to a Loader for storage. Transformers can convert or restructure data formats, subset data
+                        for particular interesting fields, or combine multiple inputs to generate composite results.
+                    </div>
+                </article>
 
-                    <nav class="panel">
-                      <p class="panel-heading">
+                <nav class="panel">
+                    <p class="panel-heading">
                         Transformers
-                      </p>
-                     <div class="panel-block">
+                    </p>
+                    <div class="panel-block">
                         <p class="control has-icons-left">
-                          <input class="input" type="text" placeholder="Search">
-                          <span class="icon is-left">
+                            <input class="input" type="text" placeholder="Search">
+                            <span class="icon is-left">
                             <i class="fas fa-search" aria-hidden="true"></i>
                           </span>
                         </p>
-                      </div>
-                      <p class="panel-tabs">
+                    </div>
+                    <p class="panel-tabs">
                         <a class="is-active">All</a>
                         <a>Infrastructure</a>
                         <a>Communication</a>
                         <a>Standardized</a>
                         <a>Other</a>
-                      </p>
-                      <a class="panel-block">
+                    </p>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-layer-group" aria-hidden="true"></i>
                         </span>
                         NetCDF
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-layer-group" aria-hidden="true"></i>
                         </span>
                         HDF5
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-layer-group" aria-hidden="true"></i>
                         </span>
                         HDF-EOS
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-atlassian" aria-hidden="true"></i>
                         </span>
                         Bamboo
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-bitbucket" aria-hidden="true"></i>
                         </span>
                         Bitbucket
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-jira" aria-hidden="true"></i>
                         </span>
                         Jira
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-confluence" aria-hidden="true"></i>
                         </span>
                         Confluence
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-code-branch" aria-hidden="true"></i>
                         </span>
                         Slack
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-code-branch" aria-hidden="true"></i>
                         </span>
                         Suricata
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-code-branch" aria-hidden="true"></i>
                         </span>
                         Uptrends
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-code-branch" aria-hidden="true"></i>
                         </span>
                         Zap
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Cost Calculator
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Inspector
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Cloudwatch
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         Cost Explorer
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         IAM Analyzer
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-file-alt" aria-hidden="true"></i>
                         </span>
                         JSON
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-file-alt" aria-hidden="true"></i>
                         </span>
                         XML
-                      </a>
-                    </nav>
-                </div>
-                <div class="column">
-                    <article class="message is-link">
-                        <div class="message-header">
-                            <p>Load</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
-                        <div class="message-body">
-                            Loaders take the results of Transformers and store them. Loaders currently
-                            exist for multiple database types but also can outputt o filesystems, AWS S3, or other
-                            receiving APIs. Adding additional Loaders only requires
-                            creating a python class for the loader which implements the post(records: list) method.
+                    </a>
+                </nav>
+            </div>
+            <div class="column">
+                <article class="message is-link">
+                    <div class="message-header">
+                        <p>Load</p>
+                        <button class="delete" aria-label="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        Loaders take the results of Transformers and store them. Loaders currently
+                        exist for multiple database types but also can outputt o filesystems, AWS S3, or other
+                        receiving APIs. Adding additional Loaders only requires
+                        creating a python class for the loader which implements the post(records: list) method.
 
-                        </div>
-                    </article>
+                    </div>
+                </article>
 
-                    <nav class="panel">
-                      <p class="panel-heading">
+                <nav class="panel">
+                    <p class="panel-heading">
                         Loaders
-                      </p>
-                      <div class="panel-block">
+                    </p>
+                    <div class="panel-block">
                         <p class="control has-icons-left">
-                          <input class="input" type="text" placeholder="Search">
-                          <span class="icon is-left">
+                            <input class="input" type="text" placeholder="Search">
+                            <span class="icon is-left">
                             <i class="fas fa-search" aria-hidden="true"></i>
                           </span>
                         </p>
-                      </div>
-                      <p class="panel-tabs">
+                    </div>
+                    <p class="panel-tabs">
                         <a class="is-active">All</a>
                         <a>Database</a>
                         <a>Message Bus</a>
                         <a>Other</a>
-                      </p>
-                      <a class="panel-block">
+                    </p>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-random" aria-hidden="true"></i>
                         </span>
                         Kafka
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-random" aria-hidden="true"></i>
                         </span>
                         RabbitMQ
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         SQS
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-database" aria-hidden="true"></i>
                         </span>
                         ElasticSearch
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-database" aria-hidden="true"></i>
                         </span>
                         PostgreSQL
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
                         S3
-                      </a>
-                      <a class="panel-block">
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fab fa-aws" aria-hidden="true"></i>
                         </span>
-                       Cloudwatch Logs
-                      </a>
-                      <a class="panel-block">
+                        Cloudwatch Logs
+                    </a>
+                    <a class="panel-block">
                         <span class="panel-icon">
                           <i class="fas fa-folder" aria-hidden="true"></i>
                         </span>
-                       Filesystem
-                      </a>
-                    </nav>
-                </div>
+                        Filesystem
+                    </a>
+                </nav>
             </div>
         </div>
-
     </div>
 
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p>
-                <strong>Innovisions</strong> by <a href="https://innovim.com">INNOVIM</a> &copy; 2021 All Rights
-                Reserved.</a>.
-            </p>
-        </div>
-    </footer>
+</div>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Innovisions</strong> by <a href="https://innovim.com">INNOVIM</a> &copy; 2021 All Rights
+            Reserved.</a>.
+        </p>
+    </div>
+</footer>
 
 </body>
 
@@ -1134,4 +1258,6 @@ SURGE_CONFIG='some yaml' surge
 <script type="text/javascript" src="js/flow.js"></script>
 <script type="text/javascript" src="js/particles.min.js"></script>
 <script type="text/javascript" src="js/inn.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="logtail.js"></script>
 </html>

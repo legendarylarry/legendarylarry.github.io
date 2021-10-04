@@ -8,6 +8,10 @@ canvas {
   display: block;
 }
 
+#live .card {
+  background-color: #ededed;
+}
+
 .pad {
   padding:20px 20px 20px 100px;
 }

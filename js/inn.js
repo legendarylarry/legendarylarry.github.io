@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const typedTextSpan = document.querySelector(".typed-text");
 const cursorSpan = document.querySelector(".cursor");
 
-const textArray = ["Data Processing", "Machine Learning", "Data Aggregation", "Organizational Awareness", "System Reliability"];
+const textArray = ["Data Processing", "Machine Learning", "Ingest & Distribution", "Data Aggregation", "Organizational Awareness", "System Reliability Engineering"];
 const typingDelay = 5;
 const erasingDelay = 1;
 const newTextDelay = 1400; // Delay between current and next text
