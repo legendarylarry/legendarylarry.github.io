@@ -127,7 +127,7 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <b>N</b> records are in the message bus awaiting processing.
+                          <b id="ticker-kafka">N</b> records are in the message bus awaiting processing.
                         </div>
                     </div>
                     <footer class="card-footer">
@@ -148,7 +148,7 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <b>N</b> records have been scored by the Neural Network.
+                            <b id="ticker-ml">N</b> records have been scored by the Neural Network.
                         </div>
                     </div>
                     <footer class="card-footer">
@@ -168,7 +168,7 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <b>N</b> scored records have been inserted into the data warehouse and are ready for
+                            <b id="ticker-es">N</b> scored records have been inserted into the data warehouse and are ready for
                             exploration and analysis.
                         </div>
                     </div>
@@ -1260,4 +1260,5 @@ SURGE_CONFIG='some yaml' surge
 <script type="text/javascript" src="js/inn.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <!--<script type="text/javascript" src="js/logtail.js"></script>-->
+<script type="text/javascript" src="js/tickers.js"></script>
 </html>
