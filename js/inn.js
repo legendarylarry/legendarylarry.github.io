@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+z
 
   let pages = document.querySelectorAll(".page");
     pages.forEach(function(page) {
@@ -172,6 +172,8 @@ if(textArray.length) setTimeout(type, newTextDelay + 250);
         ["Data Warehouse", "Distribution Node   ", "Load Balancer", "Consumer"]
     ]);
     new flowjs.DiFlowChart("graph-scale-egress", graph).draw();
+
+
 
 
 });

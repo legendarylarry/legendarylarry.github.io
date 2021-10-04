@@ -9,7 +9,7 @@ var scrollelems = ["html", "body"];
 
 var url = "http://logs.innovisions.innovim.com/logs/Extract.log";
 var fix_rn = true;
-var load = 30 * 1024; /* 30KB */
+var load = 10 * 1024; /* 30KB */
 var poll = 1000; /* 1s */
 
 var kill = false;
