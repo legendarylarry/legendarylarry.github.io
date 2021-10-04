@@ -39,51 +39,51 @@ flowjs.flowItem = function flowItem(x, y, text, radius, listener){
     };
     
     var onmouseover = function(){
-        that.originalColor = that.color;
-        that.color = "green";
-        that.updateShape();
-
-        console.log(that);
-
-        let details = document.querySelectorAll(".node-config");
-        details.forEach(function(item) {
-          item.style.display = "none";
-        });
-
-        details = document.querySelectorAll(".node-details");
-        details.forEach(function(item) {
-          item.style.display = "none";
-        });
-
-        let me = document.querySelector(`.node-config[data-node="${that.text}"]`)
-        if (me){
-             if (me.classList.contains("hide")) {
-                me.classList.remove("hide");
-             }
-            me.style.display = "block";
-        }
-
-        that.updateShape();
+        // that.originalColor = that.color;
+        // that.color = "green";
+        // that.updateShape();
+        //
+        // console.log(that);
+        //
+        // let details = document.querySelectorAll(".node-config");
+        // details.forEach(function(item) {
+        //   item.style.display = "none";
+        // });
+        //
+        // details = document.querySelectorAll(".node-details");
+        // details.forEach(function(item) {
+        //   item.style.display = "none";
+        // });
+        //
+        // let me = document.querySelector(`.node-config[data-node="${that.text}"]`)
+        // if (me){
+        //      if (me.classList.contains("hide")) {
+        //         me.classList.remove("hide");
+        //      }
+        //     me.style.display = "block";
+        // }
+        //
+        // that.updateShape();
     };
     
     var onmouseout = function(){
-        that.color = that.originalColor || "black";
-
-         let details = document.querySelectorAll(".node-config");
-        details.forEach(function(item) {
-          item.style.display = "none";
-        });
-
-        details = document.querySelectorAll(".node-details");
-        details.forEach(function(item) {
-          item.style.display = "none";
-        });
-
-        let defaultDesc = document.querySelector(`.node-details-default`)
-        if (defaultDesc){
-            defaultDesc.style.display = "block";
-        }
-        that.updateShape();
+        // that.color = that.originalColor || "black";
+        //
+        //  let details = document.querySelectorAll(".node-config");
+        // details.forEach(function(item) {
+        //   item.style.display = "none";
+        // });
+        //
+        // details = document.querySelectorAll(".node-details");
+        // details.forEach(function(item) {
+        //   item.style.display = "none";
+        // });
+        //
+        // let defaultDesc = document.querySelector(`.node-details-default`)
+        // if (defaultDesc){
+        //     defaultDesc.style.display = "block";
+        // }
+        // that.updateShape();
     };
 
     // var showConfig = function(){

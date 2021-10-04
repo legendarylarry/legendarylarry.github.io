@@ -1,9 +1,7 @@
 <html>
 
 <head>
-
     <meta charset="UTF-8">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -15,16 +13,14 @@
     <!--    <link rel="stylesheet" href="shepherd.js/dist/css/shepherd.css"/>-->
 
     <link rel="stylesheet" href="css/inn.css">
-
-
 </head>
 
 
 <body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        <a class="navbar-item" href="/">
+            <img src="img/logo.jpg" height="28">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -73,9 +69,9 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
-                        <strong>Contact Us</strong>
-                    </a>
+<!--                    <a class="button is-primary">-->
+<!--                        <strong>Contact Us</strong>-->
+<!--                    </a>-->
                 </div>
             </div>
         </div>
@@ -230,34 +226,23 @@
 
 <div class="page" id="home">
 
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <p class="title">
-                Innovisions
-            </p>
-            <p class="subtitle">
-                Innovisions is a set of tools and architectural patterns for data aggregation enabling advanced
-                analytics,
-                machine learning, event-driven systems, and value-added data product generation.
-            </p>
-        </div>
-    </section>
-<!--    <div class="container">-->
-<!--        <div class="columns">-->
-<!--            <div class="column is-centered">-->
-<!--                 <i class="fas fa-user fa-4x"></i>-->
-<!--                dfgdfgd-->
-<!--            </div>-->
-<!--             <div class="column is-centered">-->
-<!--                <i class="fas fa-user fa-4x"></i>-->
-<!--                 dfgdfgdgd-->
-<!--            </div>-->
-<!--             <div class="column is-centered">-->
-<!--                <i class="fas fa-user fa-4x"></i>-->
-<!--                 dfgfdgdfg-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+<div class="card ctapanel">
+  <div class="card-content">
+      <h1 class="title">Innovisions</h1>
+      <h1 class="subtitle">A Rapid Prototyping Environment for <span class="typing-container">
+      <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+      </span></h1>
+
+      <div class="ctabuttons">
+         <a class="button is-primary" data-page="arch">
+         <strong>Explore</strong>
+       </a>
+      </div>
+
+  </div>
+</div>
+
+    <div id="particles-js"></div>
 </div>
 
 <div class="page" id="archiving">
@@ -362,7 +347,7 @@
 
                     <nav class="panel">
                         <p class="panel-heading">
-                            Data Catalog Search Example
+                            Data CatalogExample
                         </p>
                         <div class="panel-block">
                             <p class="control has-icons-left">
@@ -403,11 +388,6 @@
                                 class="tag is-danger is-light">Near Real-Time</span>
                         </a>
 
-                        <div class="panel-block">
-                            <button class="button is-link is-outlined is-fullwidth">
-                                Reset all filters
-                            </button>
-                        </div>
                     </nav>
 
                     <h2>Innovisions Metadata Extractors</h2>
@@ -419,7 +399,7 @@
 
                     <h2>Create a Direct Pipeline to Data.gov</h2>
                     <p>
-                        Use our surge ETL transformers to automatically generate data.json files and post them to
+                        Use our surge ETL transformers to automatically generate and update data.json files for
                         <a href="https://www.data.gov/">data.gov</a>.
                     </p>
 
@@ -452,21 +432,19 @@
 
     <div class="page" id="arch">
 
-        <div class="columns">
-            <div class="column head">
-                <article class="message">
-                    <div class="message-header">
-                        <p>Introduction</p>
-                        <button class="delete" aria-label="delete"></button>
-                    </div>
-                    <div class="message-body">
-                        Below are examples of data pipelines implemented with Innovisions tools and patterns. The
+        <section class="hero is-info">
+            <div class="hero-body">
+                <p class="title">
+                    Adaptable Architecture
+                </p>
+                <p class="subtitle">
+                    Below are examples of data pipelines implemented with Innovisions tools and patterns. The
                         framework
                         is designed to be highly flexible while maintaining a simplified deployment.
-                    </div>
-                </article>
+                </p>
             </div>
-        </div>
+        </section>
+        <br>
 
         <div class="columns">
             <div class="column pad">
@@ -484,9 +462,9 @@
                                 software. Their behavior is controlled
                                 by runtime configuration via environment variables.
                             </p>
-                            <p>
-                                Mouse over the nodes to see their configuration.
-                            </p>
+<!--                            <p>-->
+<!--                                Mouse over the nodes to see their configuration.-->
+<!--                            </p>-->
 
                         </div>
                     </div>
@@ -1154,5 +1132,6 @@ SURGE_CONFIG='some yaml' surge
 <script type="text/javascript" src="js/flowitem.js"></script>
 <script type="text/javascript" src="js/graph.js"></script>
 <script type="text/javascript" src="js/flow.js"></script>
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script type="text/javascript" src="js/inn.js"></script>
 </html>
