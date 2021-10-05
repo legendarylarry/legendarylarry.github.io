@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+   $('a[data-modal]').click( function(){
+       let target = '#' + $(this).attr('data-modal')
+       $(target).addClass('is-active');
+   });
+
+   $('.modal-close').click( function(){
+       $('.modal').removeClass('is-active');
+   });
+
   let pages = document.querySelectorAll(".page");
     pages.forEach(function(page) {
       page.style.display = "none";

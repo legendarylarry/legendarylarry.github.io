@@ -16,8 +16,22 @@ canvas {
   padding:20px 20px 20px 100px;
 }
 
+.modal-content {
+  background-color: #f7f7f7;
+  padding:20px;
+  width:80%;
+}
+
 .nopad {
   padding: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.no-margin {
+  margin: 0 !important;
 }
 
 .head {

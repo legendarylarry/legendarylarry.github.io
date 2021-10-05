@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
     <link rel="stylesheet" href="css/dracula.css">
     <link rel="stylesheet" type="text/css" href="css/all.css"> <!--load all styles -->
-    <link type="text/css" href="css/logtail.css" >
+    <link type="text/css" href="css/logtail.css">
     <!--    <link rel="stylesheet" href="shepherd.js/dist/css/shepherd.css"/>-->
 
     <link rel="stylesheet" href="css/inn.css">
@@ -94,6 +94,138 @@
     </section>
     <br>
 
+    <div class="modal" id="modal-data-input">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+                    <p>Original data is CSV format, 1 row per computer, collected from Microsoft Windows Defender. Here are 3 example rows:</p>
+                    <pre class="grey lighten-3" style="overflow-x:scroll;">
+MachineIdentifier,ProductName,EngineVersion,AppVersion,AvSigVersion,IsBeta,RtpStateBitfield,IsSxsPassiveMode,DefaultBrowsersIdentifier,AVProductStatesIdentifier,AVProductsInstalled,AVProductsEnabled,HasTpm,CountryIdentifier,CityIdentifier,OrganizationIdentifier,GeoNameIdentifier,LocaleEnglishNameIdentifier,Platform,Processor,OsVer,OsBuild,OsSuite,OsPlatformSubRelease,OsBuildLab,SkuEdition,IsProtected,AutoSampleOptIn,PuaMode,SMode,IeVerIdentifier,SmartScreen,Firewall,UacLuaenable,Census_MDC2FormFactor,Census_DeviceFamily,Census_OEMNameIdentifier,Census_OEMModelIdentifier,Census_ProcessorCoreCount,Census_ProcessorManufacturerIdentifier,Census_ProcessorModelIdentifier,Census_ProcessorClass,Census_PrimaryDiskTotalCapacity,Census_PrimaryDiskTypeName,Census_SystemVolumeTotalCapacity,Census_HasOpticalDiskDrive,Census_TotalPhysicalRAM,Census_ChassisTypeName,Census_InternalPrimaryDiagonalDisplaySizeInInches,Census_InternalPrimaryDisplayResolutionHorizontal,Census_InternalPrimaryDisplayResolutionVertical,Census_PowerPlatformRoleName,Census_InternalBatteryType,Census_InternalBatteryNumberOfCharges,Census_OSVersion,Census_OSArchitecture,Census_OSBranch,Census_OSBuildNumber,Census_OSBuildRevision,Census_OSEdition,Census_OSSkuName,Census_OSInstallTypeName,Census_OSInstallLanguageIdentifier,Census_OSUILocaleIdentifier,Census_OSWUAutoUpdateOptionsName,Census_IsPortableOperatingSystem,Census_GenuineStateName,Census_ActivationChannel,Census_IsFlightingInternal,Census_IsFlightsDisabled,Census_FlightRing,Census_ThresholdOptIn,Census_FirmwareManufacturerIdentifier,Census_FirmwareVersionIdentifier,Census_IsSecureBootEnabled,Census_IsWIMBootEnabled,Census_IsVirtualDevice,Census_IsTouchEnabled,Census_IsPenCapable,Census_IsAlwaysOnAlwaysConnectedCapable,Wdft_IsGamer,Wdft_RegionIdentifier
+0000010489e3af074adeac69c53e555e,win8defender,1.1.15400.5,4.18.1810.5,1.281.501.0,0,7,0,,53447,1,1,1,43,58552,18,53,42,windows10,x64,10.0.0.0,15063,768,rs2,15063.0.amd64fre.rs2_release.170317-1834,Home,1,0,,,108,,1,1,Notebook,Windows.Desktop,2689,30661,4,5,3063,,488386,SSD,123179,0,8192,Notebook,15.5,1920,1080,Mobile,,8,10.0.15063.1387,amd64,rs2_release,15063,1387,Core,CORE,Reset,37,158,AutoInstallAndRebootAtMaintenanceTime,0,IS_GENUINE,OEM:DM,,0,Retail,,807,8554,1,,0,0,0,0,0,7
+00000176ac758d54827acd545b6315a5,win8defender,1.1.15400.4,4.18.1809.2,1.279.301.0,0,7,0,,53447,1,1,1,68,71395,,276,74,windows10,x64,10.0.0.0,16299,768,rs3,16299.431.amd64fre.rs3_release_svc_escrow.180502-1908,Home,1,0,,,117,RequireAdmin,1,1,Notebook,Windows.Desktop,2206,242491,4,5,3410,,1907729,HDD,1882352,0,8192,Notebook,15.5,1366,768,Mobile,,0,10.0.16299.611,amd64,rs3_release_svc_escrow,16299,611,Core,CORE,UUPUpgrade,7,30,AutoInstallAndRebootAtMaintenanceTime,0,IS_GENUINE,Retail,,0,Retail,,554,33105,1,,0,0,0,0,1,12
+0000019dcefc128c2d4387c1273dae1d,win8defender,1.1.15300.6,4.18.1809.2,1.277.230.0,0,7,0,,49480,2,1,1,201,66202,,267,251,windows10,x64,10.0.0.0,14393,768,rs1,14393.2189.amd64fre.rs1_release.180329-1711,Home,1,0,,,98,RequireAdmin,1,1,Notebook,Windows.Desktop,585,189533,2,5,2097,,29820,SSD,28678,0,4096,Notebook,13.9,1280,720,Mobile,,0,10.0.14393.2189,amd64,rs1_release,14393,2189,CoreSingleLanguage,CORE_SINGLELANGUAGE,Other,35,148,UNKNOWN,0,IS_GENUINE,OEM:DM,,0,Retail,,556,63396,1,,0,0,0,0,1,11
+                    </pre>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+        <div class="modal" id="modal-data-transform">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+                    <p>Data is structured as JSON and posted to a Kafka Topic for further ETL and routing to the data lake. Another agent cleans/typecasts the fields and posts to a new Kafka topic for the next stage.</p>
+                    <pre class="has-text-grey no-margin">
+{
+    "MachineIdentifier" : "02ff0d61d22a3ec2be65f76bdcfc2d16",
+    "ProductName" : "win8defender",
+    "EngineVersion" : "1.1.15100.1",
+    "AppVersion" : "4.18.1807.18075",
+    "AvSigVersion" : "1.273.1552.0",
+    "IsBeta" : "0",
+    "RtpStateBitfield" : "7",
+    "IsSxsPassiveMode" : "0",
+    "DefaultBrowsersIdentifier" : "",
+    "AVProductStatesIdentifier" : "53447",
+    "AVProductsInstalled" : "1",
+    "AVProductsEnabled" : "1",
+    "HasTpm" : "1",
+    "CountryIdentifier" : "164",
+    "CityIdentifier" : "100094",
+    "OrganizationIdentifier" : "27",
+    "GeoNameIdentifier" : "205",
+    "LocaleEnglishNameIdentifier" : "172",
+    "Platform" : "windows10",
+    "Processor" : "x64",
+    "OsVer" : "10.0.0.0",
+    "OsBuild" : "16299",
+    "OsSuite" : "768",
+    "OsPlatformSubRelease" : "rs3",
+    "OsBuildLab" : "16299.15.amd64fre.rs3_release.170928-1534",
+    "SkuEdition" : "Home",
+    "IsProtected" : "1",
+    "AutoSampleOptIn" : "0",
+    "PuaMode" : "",
+    "SMode" : "0",
+    "IeVerIdentifier" : "117",
+    "SmartScreen" : "ExistsNotSet",
+    "Firewall" : "1",
+    "UacLuaenable" : "1",
+    "Census_MDC2FormFactor" : "Notebook",
+    "Census_DeviceFamily" : "Windows.Desktop",
+    "Census_OEMNameIdentifier" : "4730",
+    "Census_OEMModelIdentifier" : "311102",
+    "Census_ProcessorCoreCount" : "2",
+    "Census_ProcessorManufacturerIdentifier" : "5",
+    "Census_ProcessorModelIdentifier" : "4337",
+    "Census_ProcessorClass" : "",
+    "Census_PrimaryDiskTotalCapacity" : "476940",
+    "Census_PrimaryDiskTypeName" : "HDD",
+    "Census_SystemVolumeTotalCapacity" : "475961",
+    "Census_HasOpticalDiskDrive" : "0",
+    "Census_TotalPhysicalRAM" : "4096",
+    "Census_ChassisTypeName" : "Notebook",
+    "Census_InternalPrimaryDiagonalDisplaySizeInInches" : "15.5",
+    "Census_InternalPrimaryDisplayResolutionHorizontal" : "1366",
+    "Census_InternalPrimaryDisplayResolutionVertical" : "768",
+    "Census_PowerPlatformRoleName" : "Mobile",
+    "Census_InternalBatteryType" : "li-i",
+    "Census_InternalBatteryNumberOfCharges" : "0",
+    "Census_OSVersion" : "10.0.16299.371",
+    "Census_OSArchitecture" : "amd64",
+    "Census_OSBranch" : "rs3_release",
+    "Census_OSBuildNumber" : "16299",
+    "Census_OSBuildRevision" : "371",
+    "Census_OSEdition" : "Core",
+    "Census_OSSkuName" : "CORE",
+    "Census_OSInstallTypeName" : "Update",
+    "Census_OSInstallLanguageIdentifier" : "27",
+    "Census_OSUILocaleIdentifier" : "120",
+    "Census_OSWUAutoUpdateOptionsName" : "Notify",
+    "Census_IsPortableOperatingSystem" : "0",
+    "Census_GenuineStateName" : "IS_GENUINE",
+    "Census_ActivationChannel" : "Retail",
+    "Census_IsFlightingInternal" : "0",
+    "Census_IsFlightsDisabled" : "0",
+    "Census_FlightRing" : "Retail",
+    "Census_ThresholdOptIn" : "0",
+    "Census_FirmwareManufacturerIdentifier" : "897",
+    "Census_FirmwareVersionIdentifier" : "7221",
+    "Census_IsSecureBootEnabled" : "0",
+    "Census_IsWIMBootEnabled" : "0",
+    "Census_IsVirtualDevice" : "0",
+    "Census_IsTouchEnabled" : "0",
+    "Census_IsPenCapable" : "0",
+    "Census_IsAlwaysOnAlwaysConnectedCapable" : "0",
+    "Wdft_IsGamer" : "0",
+    "Wdft_RegionIdentifier" : "15",
+                   </pre>
+                    <div class="has-text-primary bold no-margin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"_timestamp": 1578350741.4367297</div>
+                    <pre class="has-text-grey no-margin">
+{
+                    </pre>
+                </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+
+        </div>
+
+         <div class="modal" id="modal-data-ml">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+             <h4>Computer Data Augmented with Vulnerability Score</h4>
+                    <pre class="has-text-grey no-margin">
+{
+    "MachineIdentifier" : "02ff0d61d22a3ec2be65f76bdcfc2d16",
+    "ProductName" : "win8defender",
+    [...]
+                    </pre>
+                    <div class="has-text-primary bold no-margin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"HasDetections": 0.71364523</div>
+                    <pre class="has-text-grey no-margin">
+    [...]
+}
+                    </pre>
+
+    </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+         </div>
+
     <div class="container">
 
         <div class="columns">
@@ -106,15 +238,15 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <b id="ticker-extract">N</b> records obtained from Microsoft Windows Defender ingested, cleaned, and inserted
+                            <b id="ticker-extract">N</b> records obtained from Microsoft Windows Defender ingested,
+                            cleaned, and inserted
                             into
                             the message bus.
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Info</a>
                         <a href="#" class="card-footer-item">Config</a>
-                        <a href="#" class="card-footer-item">Data</a>
+                        <a data-modal="modal-data-input" href="#" class="card-footer-item">Data</a>
                     </footer>
                 </div>
             </div>
@@ -127,13 +259,13 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                          <b id="ticker-kafka">N</b> records are in the message bus awaiting further processing.<br><br><br>
+                            <b id="ticker-kafka">N</b> records are in the message bus awaiting further
+                            processing.<br><br><br>
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Info</a>
                         <a href="#" class="card-footer-item">Config</a>
-                        <a href="#" class="card-footer-item">Data</a>
+                        <a data-modal="modal-data-transform" href="#" class="card-footer-item">Data</a>
                     </footer>
                 </div>
 
@@ -152,9 +284,8 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Info</a>
                         <a href="#" class="card-footer-item">Config</a>
-                        <a href="#" class="card-footer-item">Data</a>
+                        <a data-modal="modal-data-ml"  href="#" class="card-footer-item">Data</a>
                     </footer>
                 </div>
             </div>
@@ -168,14 +299,13 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <b id="ticker-es">N</b> scored records have been inserted into the data warehouse and are ready for
+                            <b id="ticker-es">N</b> scored records have been inserted into the data warehouse and are
+                            ready for
                             exploration and analysis.
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Info</a>
-                        <a href="#" class="card-footer-item">Config</a>
-                        <a href="#" class="card-footer-item">Data</a>
+                         <a href="#" class="card-footer-item" style="visibility: hidden;">Info</a>
                     </footer>
                 </div>
             </div>
@@ -186,7 +316,8 @@
         <h1>Logs</h1>
         <div class="tabs">
             <ul>
-                <li class="is-active" data-url="http://18.223.40.153/logs/Extract.log"><a class="log-tab">Extractor</a></li>
+                <li class="is-active" data-url="http://18.223.40.153/logs/Extract.log"><a class="log-tab">Extractor</a>
+                </li>
                 <li data-url="http://18.223.40.153/logs/Transform.log"><a class="log-tab">Transformer</a></li>
                 <li data-url="http://18.223.40.153/logs/ML.log"><a class="log-tab">ML Worker</a></li>
                 <li data-url="http://18.223.40.153/logs/Load.log"><a class="log-tab">Loader</a></li>
