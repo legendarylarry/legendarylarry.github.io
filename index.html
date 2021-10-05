@@ -94,6 +94,95 @@
     </section>
     <br>
 
+        <div class="modal" id="modal-config-input">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                 <article class="message is-dark code">
+                        <div class="message-body">
+             <pre><code class="language-yaml">
+windows_defender_ingest:
+    extract:
+      type: fs_csvs
+      root: surge/ml/microsoft_vulnerability/data
+      poll: 3
+      batch_size: 14
+    transformers:
+      - type: none
+    load:
+      type: kafka
+      serializer: json
+      topic: microsoft_vulnerabilities_extract
+      connection: *kafka_connection
+             </code></pre>
+                        </div>
+                    </article>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+         <div class="modal" id="modal-config-transform">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                  <article class="message is-dark code">
+                        <div class="message-body">
+             <pre><code class="language-yaml">
+defender_scoring:
+    extract:
+      type: kafka
+      deserializer: json
+      topic: microsoft_vulnerabilities_extract
+      connection: *kafka_connection
+      poll: 3
+
+    transformers:
+      - type: api_tag
+        connection:
+          url: http://localhost:9102/predict
+        mappings:
+          - source: 0
+            destination: "HasDetections"
+
+    load:
+      type: kafka
+      serializer: json
+      topic: microsoft_vulnerabilities_transform
+      connection: *kafka_connection
+             </code></pre>
+                        </div>
+                    </article>
+
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+         <div class="modal" id="modal-config-ml">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                  <article class="message is-dark code">
+                        <div class="message-body">
+             <pre><code class="language-yaml">
+defender_load_warehouse:
+    extract:
+      type: kafka
+      deserializer: json
+      topic: microsoft_vulnerabilities_transform
+      connection: *kafka_connection
+      poll: 3
+
+    transformers:
+      - type: none
+    load:
+      type: elasticsearch
+      index: microsoft_vulnerability
+      connection: *elk_connection
+             </code></pre>
+                        </div>
+                    </article>
+
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
     <div class="modal" id="modal-data-input">
         <div class="modal-background"></div>
         <div class="modal-content">
@@ -245,7 +334,7 @@ MachineIdentifier,ProductName,EngineVersion,AppVersion,AvSigVersion,IsBeta,RtpSt
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Config</a>
+                        <a data-modal="modal-config-input" href="#" class="card-footer-item">Config</a>
                         <a data-modal="modal-data-input" href="#" class="card-footer-item">Data</a>
                     </footer>
                 </div>
@@ -264,7 +353,7 @@ MachineIdentifier,ProductName,EngineVersion,AppVersion,AvSigVersion,IsBeta,RtpSt
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Config</a>
+                        <a data-modal="modal-config-transform" href="#" class="card-footer-item">Config</a>
                         <a data-modal="modal-data-transform" href="#" class="card-footer-item">Data</a>
                     </footer>
                 </div>
@@ -284,7 +373,7 @@ MachineIdentifier,ProductName,EngineVersion,AppVersion,AvSigVersion,IsBeta,RtpSt
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a href="#" class="card-footer-item">Config</a>
+                        <a data-modal="modal-config-ml" href="#" class="card-footer-item">Config</a>
                         <a data-modal="modal-data-ml"  href="#" class="card-footer-item">Data</a>
                     </footer>
                 </div>
