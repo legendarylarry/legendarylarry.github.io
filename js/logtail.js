@@ -7,7 +7,7 @@ var dataelem = "#logs";
 var pausetoggle = "#pause";
 var scrollelems = ["html", "body"];
 
-var url = "http://logs.innovisions.innovim.com/logs/Extract.log";
+// var url = "http://18.223.40.153/logs/Extract.log";
 var fix_rn = true;
 var load = 10 * 1024; /* 30KB */
 var poll = 1000; /* 1s */
@@ -18,6 +18,7 @@ var pause = false;
 var reverse = true;
 var log_data = "";
 var log_file_size = 0;
+var active = null;
 
 /* :-( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt */
 function parseInt2(value) {
@@ -28,6 +29,9 @@ function parseInt2(value) {
 }
 
 function get_log() {
+
+    var url = document.querySelector('#log-url').innerHTML;
+
     if (kill | loading) return;
     loading = true;
 
@@ -108,7 +112,7 @@ function get_log() {
 
             if (added)
                 show_log(added);
-            setTimeout(get_log, poll);
+            active = setTimeout(get_log, poll);
         },
         error: function (xhr, s, t) {
             loading = false;
@@ -121,7 +125,7 @@ function get_log() {
                 log_data = "";
                 show_log();
 
-                setTimeout(get_log, poll);
+                active = setTimeout(get_log, poll);
             // } else {
             //     throw "Unknown AJAX Error (status " + xhr.status + ")";
             // }
@@ -173,6 +177,16 @@ function error(what) {
 
 $(document).ready(function () {
     window.onerror = error;
+
+    $('.log-tab').click( function(){
+        $(this).parent().siblings().removeClass('is-active');
+        $(this).parent().addClass('is-active');
+        $('#log-url').html( $(this).parent().attr('data-url') );
+        if (active){
+            clearTimeout(active);
+            get_log();
+        }
+    });
 
     /* If URL is /logtail/?noreverse display in chronological order */
     var hash = location.search.replace(/^\?/, "");

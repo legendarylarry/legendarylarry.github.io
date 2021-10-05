@@ -127,7 +127,7 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                          <b id="ticker-kafka">N</b> records are in the message bus awaiting processing.
+                          <b id="ticker-kafka">N</b> records are in the message bus awaiting further processing.<br><br><br>
                         </div>
                     </div>
                     <footer class="card-footer">
@@ -148,7 +148,7 @@
                     </header>
                     <div class="card-content">
                         <div class="content">
-                            <b id="ticker-ml">N</b> records have been scored by the Neural Network.
+                            <b id="ticker-ml">N</b> records have been scored by the Neural Network.<br><br><br>
                         </div>
                     </div>
                     <footer class="card-footer">
@@ -182,12 +182,14 @@
 
         </div>
 
+        <pre id="log-url" style="display:none;">http://18.223.40.153/logs/Extract.log</pre>
         <h1>Logs</h1>
         <div class="tabs">
             <ul>
-                <li class="is-active"><a>Extractor</a></li>
-                <li><a>Transformer</a></li>
-                <li><a>ML Worker</a></li>
+                <li class="is-active" data-url="http://18.223.40.153/logs/Extract.log"><a class="log-tab">Extractor</a></li>
+                <li data-url="http://18.223.40.153/logs/Transform.log"><a class="log-tab">Transformer</a></li>
+                <li data-url="http://18.223.40.153/logs/ML.log"><a class="log-tab">ML Worker</a></li>
+                <li data-url="http://18.223.40.153/logs/Load.log"><a class="log-tab">Loader</a></li>
             </ul>
         </div>
         <pre id="logs">
@@ -1259,6 +1261,6 @@ SURGE_CONFIG='some yaml' surge
 <script type="text/javascript" src="js/particles.min.js"></script>
 <script type="text/javascript" src="js/inn.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<!--<script type="text/javascript" src="js/logtail.js"></script>-->
+<script type="text/javascript" src="js/logtail.js"></script>
 <script type="text/javascript" src="js/tickers.js"></script>
 </html>
